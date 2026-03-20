@@ -1,5 +1,14 @@
 'use client'
 import { motion, useReducedMotion } from 'framer-motion'
+import dynamic from 'next/dynamic'
+
+// Strictly client-side render the WebGL canvas to prevent React-Three-Fiber hydration mismatches
+const HeroVisual = dynamic(() => import('./HeroVisual'), { 
+  ssr: false, 
+  loading: () => (
+    <div className="w-64 h-64 md:w-96 md:h-96 rounded-full bg-mint/5 animate-pulse blur-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+  )
+})
 
 export default function HeroSection() {
   const prefersReduced = useReducedMotion()
@@ -11,9 +20,9 @@ export default function HeroSection() {
   return (
     <section className="min-h-screen bg-obsidian flex items-center pt-16">
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-stretch">
           {/* Left — Text */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 flex flex-col justify-center py-8 lg:py-16">
             <motion.p initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.1, duration: 0.5 }} className="text-mint text-xs tracking-[0.22em] uppercase mb-4 flex items-center gap-3">
               AI-Powered Innovation
               <span className="w-10 h-px bg-mint opacity-40 inline-block" />
@@ -38,12 +47,17 @@ export default function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right — Visual placeholder */}
-          <div className="lg:col-span-2">
-            <div className="w-full min-h-[500px] bg-card-bg rounded-2xl flex items-center justify-center">
-              <span className="text-graphite/30 text-sm">3D Visual — Phase 3</span>
+          {/* Right — WebGL Visual */}
+          <motion.div 
+            initial={initialState} 
+            animate={animateState} 
+            transition={{ delay: prefersReduced ? 0 : 0.4, duration: 1 }}
+            className="lg:col-span-2 relative w-full h-[60vh] lg:h-auto min-h-[400px]"
+          >
+            <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+              <HeroVisual />
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Scroll indicator */}

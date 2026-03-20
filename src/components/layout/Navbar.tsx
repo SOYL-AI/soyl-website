@@ -22,8 +22,8 @@ export default function Navbar() {
 
   return (
     <nav className={cn(
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-      scrolled ? 'bg-obsidian/95 backdrop-blur-sm border-b border-mint/10' : 'bg-transparent'
+      'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
+      scrolled ? 'bg-obsidian/95 backdrop-blur-sm border-mint/10' : 'bg-transparent border-transparent'
     )}>
       <div className="max-w-content mx-auto px-6 lg:px-16 h-16 flex items-center justify-between">
         {/* Logo */}
