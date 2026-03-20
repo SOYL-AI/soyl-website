@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
@@ -28,9 +29,14 @@ export default function Navbar() {
       <div className="max-w-content mx-auto px-6 lg:px-16 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full border border-mint/40 flex items-center justify-center">
-            <span className="text-mint text-xs font-bold">S</span>
-          </div>
+          <Image 
+            src="/images/logo.png" 
+            alt="SOYL AI Logo" 
+            width={48} 
+            height={48} 
+            className="h-14 w-auto object-contain" 
+            priority 
+          />
           <span className="font-display font-bold text-soyl-white tracking-tight">SOYL AI</span>
         </Link>
 
