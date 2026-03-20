@@ -1,18 +1,34 @@
+'use client'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
+import { motion, useReducedMotion } from 'framer-motion'
+import StaggerContainer from '@/components/motion/StaggerContainer'
+import FadeInUp from '@/components/motion/FadeInUp'
+import { slideInLeft, slideInRight } from '@/lib/motion'
 
 export default function LibrarySection() {
+  const prefersReduced = useReducedMotion()
   return (
-    <section className="bg-obsidian py-16 md:py-24">
+    <section className="bg-obsidian py-16 md:py-24 overflow-hidden">
       <div className="max-w-content mx-auto px-6 lg:px-16">
-        <SectionLabel>Library</SectionLabel>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-soyl-white mb-12">
-          Insights &amp; Research
-        </h2>
+        <StaggerContainer>
+          <FadeInUp><SectionLabel>Library</SectionLabel></FadeInUp>
+          <FadeInUp>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-soyl-white mb-12">
+              Insights &amp; Research
+            </h2>
+          </FadeInUp>
+        </StaggerContainer>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 relative">
           {/* Blog column */}
-          <div className="md:border-r border-mint/20 md:pr-12 pb-8 md:pb-0">
+          <motion.div
+            variants={prefersReduced ? {} : slideInLeft}
+            initial={prefersReduced ? {} : 'hidden'}
+            whileInView={prefersReduced ? {} : 'visible'}
+            viewport={{ once: true, margin: '-60px' }}
+            className="md:pr-12 pb-8 md:pb-0"
+          >
             <p className="text-mint text-xs tracking-widest uppercase mb-6">Latest Blog</p>
             <div className="w-full aspect-video bg-card-bg rounded-xl mb-4 flex items-center justify-center">
               <span className="text-graphite/30 text-sm">Cover Image</span>
@@ -27,10 +43,25 @@ export default function LibrarySection() {
             <a href="/library" className="text-mint text-sm hover:gap-2 inline-flex items-center gap-1 transition-all duration-200">
               Read →
             </a>
-          </div>
+          </motion.div>
+          
+          {/* Central Divider */}
+          <motion.div
+            initial={prefersReduced ? {} : { scaleY: 0 }}
+            whileInView={prefersReduced ? {} : { scaleY: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-mint/20 origin-top -translate-x-1/2"
+          />
 
           {/* Research column */}
-          <div className="md:pl-12 pt-8 md:pt-0">
+          <motion.div
+            variants={prefersReduced ? {} : slideInRight}
+            initial={prefersReduced ? {} : 'hidden'}
+            whileInView={prefersReduced ? {} : 'visible'}
+            viewport={{ once: true, margin: '-60px' }}
+            className="md:pl-12 pt-8 md:pt-0"
+          >
             <p className="text-mint text-xs tracking-widest uppercase mb-6">Research Papers</p>
             <span className="bg-mint/10 text-mint text-xs px-3 py-1 rounded-full inline-block mb-4">Research Paper</span>
             <h3 className="font-heading font-bold text-lg text-soyl-white mb-2">
@@ -43,12 +74,18 @@ export default function LibrarySection() {
             <a href="/library" className="text-mint text-sm hover:gap-2 inline-flex items-center gap-1 transition-all duration-200">
               View Paper →
             </a>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="text-center mt-12">
+        <motion.div 
+          initial={prefersReduced ? {} : { opacity: 0, y: 16 }}
+          whileInView={prefersReduced ? {} : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-12"
+        >
           <Button href="/library">Explore Full Library →</Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
