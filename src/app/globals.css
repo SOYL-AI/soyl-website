@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* === Tailwind v4 Theme Tokens === */
+@theme {
+  /* Colors — use as bg-obsidian, text-mint, etc. */
+  --color-obsidian:    #030709;
+  --color-soyl-white:  #F8FCFD;
+  --color-mint:        #AFD0CC;
+  --color-graphite:    #636467;
+  --color-card-bg:     #0d1214;
+  --color-footer-bg:   #0a0d0f;
+
+  /* Opacity variants — use as bg-mint-10, etc. */
+  --color-mint-10:     oklch(from #AFD0CC l c h / 0.10);
+  --color-mint-20:     oklch(from #AFD0CC l c h / 0.20);
+  --color-mint-40:     oklch(from #AFD0CC l c h / 0.40);
+
+  /* Fonts — use as font-display, font-heading, etc. */
+  --font-display: 'Space Grotesk', 'Century Gothic', sans-serif;
+  --font-heading: 'Inter', 'Century Gothic', sans-serif;
+  --font-body:    'Century Gothic', 'Trebuchet MS', sans-serif;
+  --font-caption: 'Gadugi', 'Century Gothic', sans-serif;
+
+  /* Layout */
+  --max-width-content: 1200px;
+
+  /* Animations — use as animate-marquee, animate-fade-up, etc. */
+  --animate-marquee:  marquee 30s linear infinite;
+  --animate-fade-up:  fadeUp 0.5s ease-out forwards;
+  --animate-bounce-y: bounceY 1.5s ease-in-out infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* === Custom Keyframes === */
+@keyframes marquee {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes fadeUp {
+  0%   { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounceY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* View Transition animations */
+@keyframes fadeOut { to { opacity: 0; } }
+@keyframes fadeIn { from { opacity: 0; } }
+::view-transition-old(root) { animation: fadeOut 0.2s ease-in; }
+::view-transition-new(root) { animation: fadeIn 0.3s ease-out; }
 
+/* === Base Styles === */
+html { scroll-behavior: smooth; }
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-obsidian);
+  color: var(--color-soyl-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* Self-hosted fonts — add your WOFF2 files to /public/fonts/ then uncomment */
+/*
+@font-face {
+  font-family: 'Nevera';
+  src: url('/fonts/Nevera.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Groote';
+  src: url('/fonts/Groote.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+*/
+
+::selection { background: var(--color-mint-40); color: var(--color-obsidian); }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-obsidian); }
+::-webkit-scrollbar-thumb { background: var(--color-graphite); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-mint); }
