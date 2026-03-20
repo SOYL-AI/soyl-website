@@ -1,4 +1,5 @@
 import SectionLabel from '@/components/ui/SectionLabel'
+import ImageMarquee from '@/components/ui/ImageMarquee'
 
 const STEPS = [
   { number: '01', title: 'Discover', description: 'We begin by deeply understanding the problem space, user needs, and business context.' },
@@ -6,6 +7,9 @@ const STEPS = [
   { number: '03', title: 'Build',    description: 'Engineering rigour and AI-first thinking produce robust, scalable products.' },
   { number: '04', title: 'Iterate',  description: 'Continuous feedback loops and real-world data drive ongoing refinement.' },
 ]
+
+// Temporary placeholder images
+const MARQUEE_IMAGES = Array.from({ length: 6 }).map((_, i) => `/images/placeholder-${i}.jpg`)
 
 export default function HowWeWorkSection() {
   return (
@@ -43,14 +47,8 @@ export default function HowWeWorkSection() {
           </div>
         </div>
 
-        {/* Marquee placeholder */}
-        <div className="overflow-hidden mt-16">
-          <div className="flex gap-4 animate-marquee hover:[animation-play-state:paused]">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="flex-shrink-0 w-64 h-40 rounded-xl bg-obsidian/50 border border-mint/10" />
-            ))}
-          </div>
-        </div>
+        {/* Infinite Image Marquee */}
+        <ImageMarquee images={MARQUEE_IMAGES} />
       </div>
     </section>
   )
