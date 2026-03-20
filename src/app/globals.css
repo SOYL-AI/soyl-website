@@ -16,8 +16,8 @@
   --color-mint-40:     oklch(from #AFD0CC l c h / 0.40);
 
   /* Fonts — use as font-display, font-heading, etc. */
-  --font-display: 'Space Grotesk', 'Century Gothic', sans-serif;
-  --font-heading: 'Inter', 'Century Gothic', sans-serif;
+  --font-display: 'Nevera', 'Century Gothic', sans-serif;
+  --font-heading: 'Groote', 'Century Gothic', sans-serif;
   --font-body:    'Century Gothic', 'Trebuchet MS', sans-serif;
   --font-caption: 'Gadugi', 'Century Gothic', sans-serif;
 
@@ -61,21 +61,19 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Self-hosted fonts — add your WOFF2 files to /public/fonts/ then uncomment */
-/*
+/* Self-hosted fonts */
 @font-face {
   font-family: 'Nevera';
-  src: url('/fonts/Nevera.woff2') format('woff2');
+  src: url('/fonts/Nevera-Regular.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: 'Groote';
-  src: url('/fonts/Groote.woff2') format('woff2');
+  src: url('/fonts/Groote-Regular.woff2') format('woff2');
   font-weight: 400 700;
   font-display: swap;
 }
-*/
 
 ::selection { background: var(--color-mint-40); color: var(--color-obsidian); }
 ::-webkit-scrollbar { width: 6px; }
