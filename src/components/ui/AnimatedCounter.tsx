@@ -6,10 +6,13 @@ export default function AnimatedCounter({ target, suffix = '' }: { target: numbe
   const ref = useRef<HTMLSpanElement>(null)
   const isInView = useInView(ref, { once: true })
   const prefersReduced = useReducedMotion()
-  const [count, setCount] = useState(prefersReduced ? target : 0)
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
-    if (!isInView || prefersReduced) return
+    if (!isInView) return
+    // Reduced motion: jump to target immediately
+    if (prefersReduced) { setCount(target); return }
+
     const duration = 1500
     const start = performance.now()
 

@@ -1,5 +1,6 @@
 'use client'
 import { motion, useReducedMotion } from 'framer-motion'
+import { Link } from 'next-view-transitions'
 import dynamic from 'next/dynamic'
 
 // Strictly client-side render the WebGL canvas to prevent React-Three-Fiber hydration mismatches
@@ -18,7 +19,7 @@ export default function HeroSection() {
   const initialState = { opacity: prefersReduced ? 1 : 0, y: initialY }
 
   return (
-    <section className="min-h-screen bg-obsidian flex items-center pt-16">
+    <section className="min-h-screen bg-obsidian flex items-center pt-16 hero-grid-overlay relative">
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-stretch">
           {/* Left — Text */}
@@ -38,12 +39,12 @@ export default function HeroSection() {
               We build AI solutions that capture, understand, and preserve human experiences — turning the story of every life into lasting, meaningful intelligence.
             </motion.p>
             <motion.div initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.85, duration: 0.5 }} className="flex flex-wrap gap-4">
-              <a href="/products" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-mint text-mint hover:bg-mint hover:text-obsidian transition-all duration-200">
+              <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-mint text-mint hover:bg-mint hover:text-obsidian transition-all duration-200">
                 Get Started →
-              </a>
-              <a href="/library" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-graphite text-soyl-white hover:border-mint hover:text-mint transition-all duration-200">
+              </Link>
+              <Link href="/library" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-graphite text-soyl-white hover:border-mint hover:text-mint transition-all duration-200">
                 View Research →
-              </a>
+              </Link>
             </motion.div>
           </div>
 

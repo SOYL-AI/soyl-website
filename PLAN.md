@@ -922,7 +922,7 @@ git commit -m "scaffold: Phase 1 complete — foundation, tokens, route shells, 
 ```
 
 **Key implementation notes:**
-- Section background: `bg-soyl-white`, text: `text-obsidian`
+- Section background: `bg-elevated` (dark), text: `text-soyl-white` (intentional dark theme — consistent with brand aesthetic)
 - Left column gets a `border-l-2 border-mint pl-6` accent
 - Stat cards: `bg-white border border-obsidian/10 rounded-xl p-6` — each has a large number in `font-display text-obsidian text-4xl` and a muted label below
 - `AnimatedCounter` component: counts up from 0 to target value using `requestAnimationFrame` on viewport entry — add in Phase 3
@@ -1014,7 +1014,7 @@ const PRODUCTS = [
 ```
 
 **Key implementation notes:**
-- Section background: `bg-soyl-white`
+- Section background: `bg-elevated` (dark, intentional — consistent with brand aesthetic)
 - In Phase 2: render all step panels stacked vertically (no sticky behaviour yet — GSAP sticky added in Phase 3)
 - Step number: `font-display font-bold text-4xl text-obsidian/20` — large, decorative
 - Active step: number becomes `text-mint`, title becomes `text-obsidian font-bold`

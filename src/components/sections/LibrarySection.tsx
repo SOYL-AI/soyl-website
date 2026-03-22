@@ -1,4 +1,5 @@
 'use client'
+import { Link } from 'next-view-transitions'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
 import { motion, useReducedMotion } from 'framer-motion'
@@ -27,10 +28,10 @@ export default function LibrarySection() {
             initial={prefersReduced ? {} : 'hidden'}
             whileInView={prefersReduced ? {} : 'visible'}
             viewport={{ once: true, margin: '-60px' }}
-            className="md:pr-12 pb-8 md:pb-0"
+            className="md:pr-12 pb-8 md:pb-0 group/blog"
           >
             <p className="text-mint text-xs tracking-widest uppercase mb-6">Latest Blog</p>
-            <div className="w-full aspect-video bg-card-bg rounded-xl mb-4 flex items-center justify-center">
+            <div className="w-full aspect-video bg-card-bg rounded-xl mb-4 flex items-center justify-center group-hover/blog:-translate-y-1.5 transition-transform duration-200">
               <span className="text-graphite/30 text-sm">Cover Image</span>
             </div>
             <h3 className="font-heading font-bold text-lg text-soyl-white mb-2">
@@ -40,9 +41,9 @@ export default function LibrarySection() {
             <p className="text-graphite text-sm leading-relaxed mb-4">
               A brief excerpt of the blog post content providing a preview of the full article…
             </p>
-            <a href="/library" className="text-mint text-sm hover:gap-2 inline-flex items-center gap-1 transition-all duration-200">
+            <Link href="/library" className="text-mint text-sm hover:gap-2 inline-flex items-center gap-1 transition-all duration-200">
               Read →
-            </a>
+            </Link>
           </motion.div>
           
           {/* Central Divider */}
@@ -60,20 +61,22 @@ export default function LibrarySection() {
             initial={prefersReduced ? {} : 'hidden'}
             whileInView={prefersReduced ? {} : 'visible'}
             viewport={{ once: true, margin: '-60px' }}
-            className="md:pl-12 pt-8 md:pt-0"
+            className="md:pl-12 pt-8 md:pt-0 group/research"
           >
             <p className="text-mint text-xs tracking-widest uppercase mb-6">Research Papers</p>
-            <span className="bg-mint/10 text-mint text-xs px-3 py-1 rounded-full inline-block mb-4">Research Paper</span>
-            <h3 className="font-heading font-bold text-lg text-soyl-white mb-2">
-              Research Paper Title Placeholder
-            </h3>
-            <p className="text-graphite text-xs mb-3">Author A, Author B · 2024</p>
-            <p className="text-graphite text-sm leading-relaxed mb-4">
-              A brief abstract of the research paper providing insight into the methodology and findings…
-            </p>
-            <a href="/library" className="text-mint text-sm hover:gap-2 inline-flex items-center gap-1 transition-all duration-200">
-              View Paper →
-            </a>
+            <div className="group-hover/research:-translate-y-1.5 transition-transform duration-200">
+              <span className="bg-mint/10 text-mint text-xs px-3 py-1 rounded-full inline-block mb-4">Research Paper</span>
+              <h3 className="font-heading font-bold text-lg text-soyl-white mb-2">
+                Research Paper Title Placeholder
+              </h3>
+              <p className="text-graphite text-xs mb-3">Author A, Author B · 2024</p>
+              <p className="text-graphite text-sm leading-relaxed mb-4">
+                A brief abstract of the research paper providing insight into the methodology and findings…
+              </p>
+              <Link href="/library" className="text-mint text-sm hover:gap-2 inline-flex items-center gap-1 transition-all duration-200">
+                View Paper →
+              </Link>
+            </div>
           </motion.div>
         </div>
 

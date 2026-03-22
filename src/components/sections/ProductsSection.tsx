@@ -1,4 +1,5 @@
 'use client'
+import { Link } from 'next-view-transitions'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
 import { motion, useReducedMotion } from 'framer-motion'
@@ -35,17 +36,22 @@ export default function ProductsSection() {
                 <motion.div 
                   whileHover={prefersReduced ? {} : { y: -6, borderColor: 'rgba(175,208,204,0.4)' }}
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                  className="bg-card-bg border border-mint/12 rounded-xl p-8 flex flex-col gap-6 h-full transition-colors duration-200"
+                  className="group relative bg-card-bg border border-mint/12 rounded-xl p-8 flex flex-col gap-6 h-full overflow-hidden"
                 >
-                  {/* Icon placeholder */}
-                  <div className="w-12 h-12 bg-mint/10 rounded-lg flex items-center justify-center">
-                    <span className="text-mint text-lg">◆</span>
+                  {/* Mint gradient flood on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-mint/8 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                  <div className="relative z-10 flex flex-col gap-6 h-full">
+                    {/* Icon placeholder */}
+                    <div className="w-12 h-12 bg-mint/10 rounded-lg flex items-center justify-center">
+                      <span className="text-mint text-lg">◆</span>
+                    </div>
+                    <h3 className="font-heading font-bold text-xl text-soyl-white">{product.name}</h3>
+                    <p className="text-graphite text-sm leading-relaxed flex-1">{product.description}</p>
+                    <Link href={`/products/${product.slug}`} className="text-mint text-sm inline-flex items-center gap-1 hover:gap-2 transition-all duration-200">
+                      Explore →
+                    </Link>
                   </div>
-                  <h3 className="font-heading font-bold text-xl text-soyl-white">{product.name}</h3>
-                  <p className="text-graphite text-sm leading-relaxed flex-1">{product.description}</p>
-                  <a href={`/products/${product.slug}`} className="text-mint text-sm inline-flex items-center gap-1 hover:gap-2 transition-all duration-200">
-                    Explore →
-                  </a>
                 </motion.div>
               </FadeInUp>
             ))}

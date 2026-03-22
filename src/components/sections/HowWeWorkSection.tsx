@@ -1,20 +1,41 @@
 'use client'
 import { useRef, useState } from 'react'
+import { Link } from 'next-view-transitions'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import SectionLabel from '@/components/ui/SectionLabel'
+import ImageMarquee from '@/components/ui/ImageMarquee'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
-import ImageMarquee from '@/components/ui/ImageMarquee'
 
 const STEPS = [
-  { number: '01', title: 'Discover', description: 'We begin by deeply understanding the problem space, user needs, and business context.' },
-  { number: '02', title: 'Design',   description: 'Rapid prototyping and design thinking translate insights into tangible solutions.' },
-  { number: '03', title: 'Build',    description: 'Engineering rigour and AI-first thinking produce robust, scalable products.' },
-  { number: '04', title: 'Iterate',  description: 'Continuous feedback loops and real-world data drive ongoing refinement.' },
+  { 
+    number: '01', title: 'Discover', 
+    description: 'We begin by deeply understanding the problem space, user needs, and business context.',
+    gradient: 'from-mint/10 via-mint/5 to-transparent',
+    pattern: 'radial-gradient(circle at 30% 40%, rgba(175,208,204,0.12) 0%, transparent 60%), radial-gradient(circle at 70% 80%, rgba(175,208,204,0.08) 0%, transparent 50%)',
+  },
+  { 
+    number: '02', title: 'Design', 
+    description: 'Rapid prototyping and design thinking translate insights into tangible solutions.',
+    gradient: 'from-transparent via-mint/8 to-mint/12',
+    pattern: 'linear-gradient(135deg, rgba(175,208,204,0.06) 25%, transparent 25%, transparent 50%, rgba(175,208,204,0.06) 50%, rgba(175,208,204,0.06) 75%, transparent 75%)',
+  },
+  { 
+    number: '03', title: 'Build', 
+    description: 'Engineering rigour and AI-first thinking produce robust, scalable products.',
+    gradient: 'from-mint/8 via-transparent to-mint/6',
+    pattern: 'linear-gradient(45deg, rgba(175,208,204,0.08) 0%, transparent 40%), radial-gradient(ellipse at 80% 20%, rgba(175,208,204,0.1) 0%, transparent 70%)',
+  },
+  { 
+    number: '04', title: 'Iterate', 
+    description: 'Continuous feedback loops and real-world data drive ongoing refinement.',
+    gradient: 'from-transparent via-mint/6 to-mint/10',
+    pattern: 'radial-gradient(circle at 50% 50%, rgba(175,208,204,0.15) 0%, transparent 50%), radial-gradient(circle at 20% 70%, rgba(175,208,204,0.06) 0%, transparent 60%)',
+  },
 ]
 
 // Temporary placeholder images
@@ -40,7 +61,7 @@ export default function HowWeWorkSection() {
     })
 
     // 2. Only pin the left container on desktop screens
-    let mm = gsap.matchMedia()
+    const mm = gsap.matchMedia()
     
     mm.add("(min-width: 768px)", () => {
       ScrollTrigger.create({
@@ -79,19 +100,31 @@ export default function HowWeWorkSection() {
                 </div>
               </div>
             ))}
-            <a href="/how-we-work" className="text-soyl-white text-sm font-medium hover:text-mint transition-colors inline-block mt-4">
+            <Link href="/how-we-work" className="text-soyl-white text-sm font-medium hover:text-mint transition-colors inline-block mt-4 link-underline">
               See Full Process →
-            </a>
+            </Link>
           </div>
 
-          {/* Right — Scroll Panels */}
+          {/* Right — Scroll Panels with CSS gradient visuals */}
           <div className="flex flex-col gap-6 md:gap-[30vh] pb-12 md:pb-[20vh]">
             {STEPS.map((step, i) => (
               <div 
                 key={`panel-${i}`} 
-                className="step-panel aspect-video w-full bg-obsidian/50 border border-mint/10 rounded-xl flex items-center justify-center transition-opacity shadow-lg"
+                className={`step-panel aspect-video w-full rounded-xl overflow-hidden border border-mint/10 relative transition-all duration-500 ${i === activeStep ? 'border-mint/25 shadow-lg shadow-mint/5' : ''}`}
               >
-                <span className="text-graphite/40 text-sm">{step.title} Visual — Phase 3</span>
+                {/* Abstract gradient background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient}`} />
+                {/* Pattern overlay */}
+                <div className="absolute inset-0" style={{ backgroundImage: step.pattern, backgroundSize: step.number === '02' ? '20px 20px' : 'cover' }} />
+                {/* Step number watermark */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-display text-[120px] font-bold text-mint/[0.04] select-none">{step.number}</span>
+                </div>
+                {/* Step label */}
+                <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-mint/40" />
+                  <span className="text-mint/50 text-xs tracking-widest uppercase">{step.title}</span>
+                </div>
               </div>
             ))}
           </div>

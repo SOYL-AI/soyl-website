@@ -1,6 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
+import { usePathname } from 'next/navigation'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
@@ -14,12 +16,18 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
 
   return (
     <nav className={cn(
@@ -44,7 +52,12 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map(link => (
             <Link key={link.href} href={link.href}
-              className="text-graphite text-sm hover:text-mint transition-colors duration-200">
+              className={cn(
+                'text-sm transition-colors duration-200',
+                pathname === link.href || pathname.startsWith(link.href + '/')
+                  ? 'text-mint'
+                  : 'text-graphite hover:text-mint'
+              )}>
               {link.label}
             </Link>
           ))}
@@ -57,22 +70,42 @@ export default function Navbar() {
         </Link>
 
         {/* Mobile menu toggle */}
-        <button className="md:hidden text-graphite hover:text-mint" onClick={() => setMenuOpen(!menuOpen)}>
+        <button 
+          className="md:hidden text-graphite hover:text-mint transition-colors"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={menuOpen}
+        >
           {menuOpen ? '✕' : '☰'}
         </button>
       </div>
 
-      {/* Mobile dropdown */}
-      {menuOpen && (
-        <div className="md:hidden bg-obsidian border-t border-mint/10 px-6 py-4 flex flex-col gap-4">
-          {NAV_LINKS.map(link => (
-            <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}
-              className="text-graphite text-sm hover:text-mint transition-colors">
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      {/* Mobile dropdown with animation */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="md:hidden overflow-hidden bg-obsidian border-t border-mint/10"
+          >
+            <div className="px-6 py-4 flex flex-col gap-4">
+              {NAV_LINKS.map(link => (
+                <Link key={link.href} href={link.href}
+                  className={cn(
+                    'text-sm transition-colors',
+                    pathname === link.href || pathname.startsWith(link.href + '/')
+                      ? 'text-mint'
+                      : 'text-graphite hover:text-mint'
+                  )}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }

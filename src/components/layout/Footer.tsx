@@ -10,7 +10,7 @@ const LINKS = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0d0f] border-t border-mint/10">
+    <footer className="bg-footer-bg border-t border-mint/10">
       <div className="max-w-content mx-auto px-6 lg:px-16 py-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12">
           {/* Logo & Manifesto */}
