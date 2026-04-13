@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import AboutHeroSection from '@/components/about/AboutHeroSection'
 import MissionVisionSection from '@/components/about/MissionVisionSection'
+import TimelineSection from '@/components/about/TimelineSection'
 import ValuesSection from '@/components/about/ValuesSection'
 import TeamSection from '@/components/about/TeamSection'
 import CTAStripSection from '@/components/about/CTAStripSection'
@@ -14,7 +15,7 @@ export default function AboutPage() {
       
       <MissionVisionSection />
       
-      {/* Timeline goes here eventually */}
+      <TimelineSection />
       
       <ValuesSection />
       <TeamSection />
