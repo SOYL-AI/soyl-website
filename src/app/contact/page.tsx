@@ -16,7 +16,7 @@ export default function ContactPage() {
       <ContactHeroSection />
       
       {/* Task 3 & 4: Stateful Interactive Form */}
-      <div className="flex-1 w-full">
+      <div className="flex-1 w-full flex flex-col items-center justify-center">
         <ContactFormSection />
       </div>
 
