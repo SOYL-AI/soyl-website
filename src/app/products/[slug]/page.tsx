@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation'
 import { PRODUCTS } from '@/lib/products'
 import ProductDetailHero from '@/components/products/ProductDetailHero'
 import ProductOverviewSection from '@/components/products/ProductOverviewSection'
+import ProductFeaturesSection from '@/components/products/ProductFeaturesSection'
+import ProductHowItWorksSection from '@/components/products/ProductHowItWorksSection'
 import RelatedProductsSection from '@/components/products/RelatedProductsSection'
 import CTAStripSection from '@/components/about/CTAStripSection'
 
@@ -29,8 +31,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       <ProductDetailHero product={product} />
       <ProductOverviewSection product={product} />
       
-      {/* ProductFeaturesSection and ProductHowItWorksSection will be injected here during Task 4 */}
-      <div className="flex-1" />
+      <ProductFeaturesSection product={product} />
+      <ProductHowItWorksSection product={product} />
       
       <RelatedProductsSection currentSlug={product.slug} />
       <CTAStripSection />
