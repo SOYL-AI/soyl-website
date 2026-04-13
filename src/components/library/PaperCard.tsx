@@ -36,7 +36,7 @@ export default function PaperCard({ paper }: { paper: Paper }) {
       <div className="bg-elevated/50 border border-mint/5 p-5 md:p-6 rounded-2xl mb-8 flex-1 relative z-10">
         <span className="text-mint/80 font-mono text-[10px] uppercase tracking-widest block mb-3 border-b border-mint/10 pb-2">Abstract</span>
         <p className="text-graphite text-sm leading-relaxed italic pr-2">
-          "{paper.abstract}"
+          &ldquo;{paper.abstract}&rdquo;
         </p>
       </div>
 

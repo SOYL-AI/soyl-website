@@ -1,6 +1,6 @@
 'use client'
-import { useState, useMemo } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { MOCK_BLOGS, MOCK_PAPERS } from '@/lib/mockData'
 import BlogCard from '@/components/library/BlogCard'
 import PaperCard from '@/components/library/PaperCard'
@@ -13,26 +13,18 @@ export default function LibraryLayoutSection() {
   const [visibleBlogs, setVisibleBlogs] = useState(2)
   const [visiblePapers, setVisiblePapers] = useState(2)
 
-  // Hardcoded structure derivations mapping to Phase 4.4 constraints.
+  const prefersReduced = useReducedMotion()
+
   const blogCategories = ['All', 'Engineering', 'Architecture', 'Design', 'Philosophy']
   const paperYears = ['All', '2026', '2025', '2024', '2023']
 
-  // Derive sorted & filtered arrays safely monitoring state
-  const filteredBlogs = useMemo(() => {
-    let filtered = MOCK_BLOGS
-    if (activeBlogFilter !== 'All') {
-      filtered = filtered.filter(blog => blog.tags.includes(activeBlogFilter))
-    }
-    return filtered
-  }, [activeBlogFilter])
+  const filteredBlogs = activeBlogFilter === 'All'
+    ? MOCK_BLOGS
+    : MOCK_BLOGS.filter(blog => blog.tags.includes(activeBlogFilter))
 
-  const filteredPapers = useMemo(() => {
-    let filtered = MOCK_PAPERS
-    if (activePaperYear !== 'All') {
-      filtered = filtered.filter(paper => paper.year.toString() === activePaperYear)
-    }
-    return filtered
-  }, [activePaperYear])
+  const filteredPapers = activePaperYear === 'All'
+    ? MOCK_PAPERS
+    : MOCK_PAPERS.filter(paper => paper.year.toString() === activePaperYear)
 
   // Isolate bounded slices simulating async pagination chunk blocks
   const pagedBlogs = filteredBlogs.slice(0, visibleBlogs)
@@ -51,7 +43,7 @@ export default function LibraryLayoutSection() {
 
   return (
     <section className="bg-obsidian py-16 md:py-24 border-b border-mint/5 relative min-h-[100vh]">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 w-full">
+      <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 relative">
           
           {/* Left Column: Blogs */}
@@ -83,10 +75,10 @@ export default function LibraryLayoutSection() {
                     <motion.div
                       key={blog.slug}
                       layout
-                      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                      initial={prefersReduced ? { opacity: 1 } : { opacity: 0, scale: 0.95, y: 20 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
-                      transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}
+                      exit={prefersReduced ? { opacity: 0 } : { opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
+                      transition={prefersReduced ? { duration: 0 } : { duration: 0.4, type: "spring", bounce: 0.2 }}
                       className="w-full"
                     >
                       <BlogCard blog={blog} />
@@ -95,7 +87,7 @@ export default function LibraryLayoutSection() {
                 </AnimatePresence>
                 
                 {pagedBlogs.length === 0 && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-12 border border-mint/10 border-dashed rounded-3xl flex items-center justify-center">
+                  <motion.div initial={{ opacity: prefersReduced ? 1 : 0 }} animate={{ opacity: 1 }} className="py-12 border border-mint/10 border-dashed rounded-3xl flex items-center justify-center">
                      <span className="text-graphite font-mono text-sm tracking-widest uppercase">No sequence matched.</span>
                   </motion.div>
                 )}
@@ -142,10 +134,10 @@ export default function LibraryLayoutSection() {
                     <motion.div
                       key={paper.slug}
                       layout
-                      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                      initial={prefersReduced ? { opacity: 1 } : { opacity: 0, scale: 0.95, y: 20 }}
                       animate={{ opacity: 1, scale: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
-                      transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}
+                      exit={prefersReduced ? { opacity: 0 } : { opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
+                      transition={prefersReduced ? { duration: 0 } : { duration: 0.4, type: "spring", bounce: 0.2 }}
                       className="w-full"
                     >
                       <PaperCard paper={paper} />
@@ -154,7 +146,7 @@ export default function LibraryLayoutSection() {
                 </AnimatePresence>
 
                 {pagedPapers.length === 0 && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-12 border border-mint/10 border-dashed rounded-3xl flex items-center justify-center">
+                  <motion.div initial={{ opacity: prefersReduced ? 1 : 0 }} animate={{ opacity: 1 }} className="py-12 border border-mint/10 border-dashed rounded-3xl flex items-center justify-center">
                      <span className="text-graphite font-mono text-sm tracking-widest uppercase">No sequence matched.</span>
                   </motion.div>
                 )}
