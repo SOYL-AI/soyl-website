@@ -72,7 +72,7 @@ export default function ProductGridSection() {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-obsidian pb-32">
+    <section className="bg-obsidian pt-24 md:pt-32 pb-32 relative z-10">
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
         <motion.div
           variants={prefersReduced ? undefined : staggerContainer}
