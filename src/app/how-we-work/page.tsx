@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import HowWeWorkHeroSection from '@/components/how-we-work/HowWeWorkHeroSection'
+import ExpandedProcessSection from '@/components/how-we-work/ExpandedProcessSection'
 import PrinciplesGridSection from '@/components/how-we-work/PrinciplesGridSection'
+import CultureGallerySection from '@/components/how-we-work/CultureGallerySection'
 import ToolsPracticesSection from '@/components/how-we-work/ToolsPracticesSection'
 import CTAStripSection from '@/components/about/CTAStripSection'
 
@@ -11,11 +13,11 @@ export default function HowWeWorkPage() {
     <main className="min-h-screen bg-obsidian flex flex-col pt-16">
       <HowWeWorkHeroSection />
       
-      {/* <ExpandedProcessSection /> */}
+      <ExpandedProcessSection />
       
       <PrinciplesGridSection />
       
-      {/* <CultureGallerySection /> */}
+      <CultureGallerySection />
       
       <ToolsPracticesSection />
 
