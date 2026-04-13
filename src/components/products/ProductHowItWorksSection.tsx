@@ -1,6 +1,5 @@
 'use client'
 import { useRef } from 'react'
-import { useReducedMotion } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -11,21 +10,15 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const MOCK_STEPS = [
-  { title: "Ingestion & Sync", desc: "Securely connect your data streams for continuous background processing." },
-  { title: "Contextual Indexing", desc: "Algorithms parse and tag the data to build your permanent experiential map." },
-  { title: "Synthesis & Reflection", desc: "Interact dynamically with the parsed nodes through standard natural language." }
-]
-
 export default function ProductHowItWorksSection({ product }: { product: Product }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const lineRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
-    let mm = gsap.matchMedia()
+    const mm = gsap.matchMedia()
 
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
-      // Draw the vertical connector line
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      // Draw the vertical connector line as user scrolls through the section
       gsap.fromTo(lineRef.current,
         { scaleY: 0 },
         {
@@ -36,11 +29,11 @@ export default function ProductHowItWorksSection({ product }: { product: Product
             start: 'top center',
             end: 'bottom center',
             scrub: 0.5,
-          }
+          },
         }
       )
 
-      // Pop in the step nodes as the line hits them
+      // Pop in each step node as the line reaches it
       const nodes = gsap.utils.toArray('.hiw-node') as HTMLElement[]
       nodes.forEach((node) => {
         const dot = node.querySelector('.hiw-dot')
@@ -51,10 +44,7 @@ export default function ProductHowItWorksSection({ product }: { product: Product
           opacity: 0,
           duration: 0.5,
           ease: 'back.out(2)',
-          scrollTrigger: {
-            trigger: node,
-            start: 'top center+=100',
-          }
+          scrollTrigger: { trigger: node, start: 'top center+=100' },
         })
 
         gsap.from(content, {
@@ -62,10 +52,7 @@ export default function ProductHowItWorksSection({ product }: { product: Product
           opacity: 0,
           duration: 0.6,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: node,
-            start: 'top center+=100',
-          }
+          scrollTrigger: { trigger: node, start: 'top center+=100' },
         })
       })
     })
@@ -86,13 +73,11 @@ export default function ProductHowItWorksSection({ product }: { product: Product
         <div className="relative py-4">
           {/* Faded track line */}
           <div className="absolute left-[23px] top-0 bottom-0 w-[2px] bg-mint/10" />
-          
           {/* Active drawing line */}
           <div ref={lineRef} className="absolute left-[23px] top-0 bottom-0 w-[2px] bg-mint origin-top scale-y-0" />
 
-          {MOCK_STEPS.map((step, i) => (
+          {product.steps.map((step, i) => (
             <div key={i} className="hiw-node relative w-full mb-16 last:mb-0 pl-[64px] md:pl-[80px]">
-              
               <div className="hiw-dot absolute left-[12px] top-[24px] w-[24px] h-[24px] rounded-full bg-obsidian border-[3px] border-mint z-10 flex items-center justify-center shadow-[0_0_15px_rgba(175,208,204,0.3)]">
                 <span className="text-[10px] font-bold text-mint">{i + 1}</span>
               </div>
@@ -105,7 +90,6 @@ export default function ProductHowItWorksSection({ product }: { product: Product
                   {step.desc}
                 </p>
               </div>
-              
             </div>
           ))}
         </div>

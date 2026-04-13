@@ -38,7 +38,7 @@ export default function AboutHeroSection() {
             animate={animateState} 
             transition={{ delay: prefersReduced ? 0 : 0.1, duration: 0.5 }}
           >
-            <SectionLabel className="justify-center !mb-6">About Us</SectionLabel>
+            <SectionLabel className="justify-center mb-6">About Us</SectionLabel>
           </motion.div>
           
           <motion.h1 

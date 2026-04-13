@@ -13,16 +13,16 @@ export default function ProductDetailHero({ product }: { product: Product }) {
     <section className="bg-obsidian pt-32 pb-24 relative overflow-hidden">
       {/* Background soft glow representing the product persona */}
       <div className="absolute inset-0 pointer-events-none mix-blend-screen opacity-10">
-        <motion.div 
-          animate={{ backgroundPosition: prefersReduced ? '0% 0%' : ['0% 0%', '100% 100%'] }}
-          transition={{ repeat: Infinity, duration: 20, repeatType: 'reverse' }}
+        <motion.div
+          animate={prefersReduced ? {} : { scale: [1, 1.2, 1] }}
+          transition={{ repeat: Infinity, duration: 10, ease: 'easeInOut', repeatType: 'mirror' }}
           className="absolute inset-x-[10%] top-0 bottom-0 bg-gradient-to-tr from-mint/20 via-transparent to-blue-500/20 blur-[130px] rounded-[100%]"
         />
       </div>
 
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full relative z-10 text-center flex flex-col items-center">
         <motion.div initial={initialState} animate={animateState} transition={{ duration: 0.5 }}>
-          <SectionLabel className="justify-center !mb-6">Soyl Suite</SectionLabel>
+          <SectionLabel className="justify-center mb-6">Soyl Suite</SectionLabel>
         </motion.div>
         
         <motion.h1 
@@ -32,7 +32,7 @@ export default function ProductDetailHero({ product }: { product: Product }) {
           className="font-display font-bold text-soyl-white leading-[1.05] mb-8" 
           style={{ fontSize: 'clamp(52px, 8vw, 100px)' }}
         >
-          {product.name.replace('SOYL ', '')}
+          {product.shortName}
         </motion.h1>
         
         <motion.div

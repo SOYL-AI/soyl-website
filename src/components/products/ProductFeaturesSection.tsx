@@ -1,12 +1,8 @@
 'use client'
 import { motion, useReducedMotion } from 'framer-motion'
-import { Brain, Lock, Zap, Heart, History, Shield, Globe, Share, Sparkles, type LucideIcon } from 'lucide-react'
 import { type Product } from '@/lib/products'
+import { ICON_MAP } from '@/lib/icons'
 import SectionLabel from '@/components/ui/SectionLabel'
-
-const ICON_MAP: Record<string, LucideIcon> = {
-  Brain, Lock, Zap, Heart, History, Shield, Globe, Share, Sparkles
-}
 
 export default function ProductFeaturesSection({ product }: { product: Product }) {
   const prefersReduced = useReducedMotion()
@@ -23,9 +19,9 @@ export default function ProductFeaturesSection({ product }: { product: Product }
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {product.features.map((feat, i) => {
-            const Icon = ICON_MAP[feat.icon] || Zap
+            const Icon = ICON_MAP[feat.icon] ?? ICON_MAP['Zap']
             return (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: prefersReduced ? 1 : 0, y: prefersReduced ? 0 : 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -33,10 +29,16 @@ export default function ProductFeaturesSection({ product }: { product: Product }
                 transition={{ delay: prefersReduced ? 0 : i * 0.1, duration: 0.5 }}
                 className="group relative bg-mint/[0.02] border border-mint/10 rounded-2xl p-8 hover:bg-mint/[0.05] hover:border-mint/30 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-mint/5 border border-mint/20 flex items-center justify-center text-mint mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className={[
+                  'w-12 h-12 rounded-xl bg-mint/5 border border-mint/20 flex items-center justify-center text-mint mb-6 transition-transform duration-300',
+                  prefersReduced ? '' : 'group-hover:scale-110',
+                ].join(' ')}>
                   <Icon size={24} />
                 </div>
-                <h3 className="font-heading font-bold text-xl text-soyl-white mb-3 group-hover:text-mint transition-colors">
+                <h3 className={[
+                  'font-heading font-bold text-xl text-soyl-white mb-3 transition-colors',
+                  prefersReduced ? '' : 'group-hover:text-mint',
+                ].join(' ')}>
                   {feat.title}
                 </h3>
                 <p className="text-graphite leading-relaxed text-sm">

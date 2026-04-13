@@ -22,7 +22,7 @@ export default function ProductOverviewSection({ product }: { product: Product }
             initial={{ opacity: prefersReduced ? 1 : 0, y: prefersReduced ? 0 : 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            transition={{ delay: prefersReduced ? 0 : 0.2, duration: 0.6 }}
             className="text-graphite text-lg md:text-xl leading-relaxed max-w-3xl mx-auto"
           >
             {product.longDescription}
