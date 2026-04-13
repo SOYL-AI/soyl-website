@@ -77,32 +77,34 @@ export default function HowWeWorkSection() {
   return (
     <section className="bg-elevated py-16 md:py-24 border-y border-mint/5">
       <div className="max-w-content mx-auto px-6 lg:px-16">
-        <SectionLabel>How We Work</SectionLabel>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-soyl-white mb-12">
-          Our Process
-        </h2>
-
         <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start relative">
           {/* Left — Step list */}
-          <div ref={stepsRef} className="space-y-8 pb-12">
-            {STEPS.map((step, i) => (
-              <div key={step.number} className="flex gap-6 items-start transition-opacity duration-300">
-                <span className={`font-display font-bold text-4xl transition-colors duration-300 ${i === activeStep ? 'text-mint' : 'text-graphite/40'}`}>
-                  {step.number}
-                </span>
-                <div>
-                  <h3 className={`font-heading font-bold text-lg mb-1 transition-colors duration-300 ${i === activeStep ? 'text-soyl-white' : 'text-graphite'}`}>
-                    {step.title}
-                  </h3>
-                  <p className={`text-sm leading-relaxed transition-colors duration-300 ${i === activeStep ? 'text-soyl-white/70' : 'text-graphite'}`}>
-                    {step.description}
-                  </p>
+          <div ref={stepsRef} className="pb-12">
+            <SectionLabel>How We Work</SectionLabel>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-soyl-white mb-12">
+              Our Process
+            </h2>
+            
+            <div className="space-y-8">
+              {STEPS.map((step, i) => (
+                <div key={step.number} className="flex gap-6 items-start transition-opacity duration-300">
+                  <span className={`font-display font-bold text-4xl transition-colors duration-300 ${i === activeStep ? 'text-mint' : 'text-graphite/40'}`}>
+                    {step.number}
+                  </span>
+                  <div>
+                    <h3 className={`font-heading font-bold text-lg mb-1 transition-colors duration-300 ${i === activeStep ? 'text-soyl-white' : 'text-graphite'}`}>
+                      {step.title}
+                    </h3>
+                    <p className={`text-sm leading-relaxed transition-colors duration-300 ${i === activeStep ? 'text-soyl-white/70' : 'text-graphite'}`}>
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-            <Link href="/how-we-work" className="text-soyl-white text-sm font-medium hover:text-mint transition-colors inline-block mt-4 link-underline">
-              See Full Process →
-            </Link>
+              ))}
+              <Link href="/how-we-work" className="text-soyl-white text-sm font-medium hover:text-mint transition-colors inline-block mt-4 link-underline">
+                See Full Process →
+              </Link>
+            </div>
           </div>
 
           {/* Right — Scroll Panels with CSS gradient visuals */}
