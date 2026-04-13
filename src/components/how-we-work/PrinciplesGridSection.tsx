@@ -27,17 +27,23 @@ export default function PrinciplesGridSection() {
         <motion.div 
           variants={prefersReduced ? undefined : staggerContainer}
           initial="hidden"
-          whileInView="show"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {PRINCIPLES.map((principle, i) => (
-            <motion.div 
-              key={i} 
+            <motion.div
+              key={i}
               variants={prefersReduced ? {} : fadeInUp}
-              className="bg-mint/[0.02] border border-mint/10 rounded-2xl p-8 hover:bg-mint/[0.05] hover:border-mint/30 hover:-translate-y-2 transition-all duration-300 group flex flex-col items-start h-full"
+              className={[
+                'bg-mint/[0.02] border border-mint/10 rounded-2xl p-8 hover:bg-mint/[0.05] hover:border-mint/30 transition-all duration-300 group flex flex-col items-start h-full',
+                prefersReduced ? '' : 'hover:-translate-y-2',
+              ].join(' ')}
             >
-              <div className="w-12 h-12 rounded-xl bg-mint/5 border border-mint/20 flex flex-col items-center justify-center text-mint mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className={[
+                'w-12 h-12 rounded-xl bg-mint/5 border border-mint/20 flex flex-col items-center justify-center text-mint mb-6 transition-transform duration-300',
+                prefersReduced ? '' : 'group-hover:scale-110',
+              ].join(' ')}>
                 <principle.icon size={24} />
               </div>
               <h3 className="font-heading font-bold text-xl text-soyl-white mb-3 group-hover:text-mint transition-colors tracking-wide">

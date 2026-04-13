@@ -99,7 +99,7 @@ export default function CultureGallerySection() {
         <motion.div 
           variants={prefersReduced ? undefined : staggerContainer}
           initial="hidden"
-          whileInView="show"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-4 auto-rows-[220px] gap-4 md:gap-6"
         >

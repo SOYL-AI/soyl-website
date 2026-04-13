@@ -92,6 +92,8 @@ export default function ExpandedProcessSection() {
         pinSpacing: false,
       })
     })
+
+    return () => mm.revert()
   }, { scope: containerRef })
 
   return (
@@ -168,7 +170,7 @@ export default function ExpandedProcessSection() {
                       <div className="bg-mint/[0.02] border border-mint/10 p-6 md:p-8 rounded-2xl flex items-center relative overflow-hidden">
                          <div className="absolute top-0 right-0 w-24 h-24 bg-mint/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/4" />
                          <p className="text-sm text-mint/80 italic leading-relaxed relative z-10 w-full text-center">
-                           "{step.note}"
+                           &ldquo;{step.note}&rdquo;
                          </p>
                       </div>
                    </div>

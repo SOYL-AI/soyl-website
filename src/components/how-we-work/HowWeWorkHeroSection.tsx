@@ -19,7 +19,7 @@ export default function HowWeWorkHeroSection() {
 
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full text-center flex flex-col items-center relative z-10">
         <motion.div initial={initialState} animate={animateState} transition={{ duration: 0.5 }}>
-          <SectionLabel className="justify-center !mb-8">Methodology</SectionLabel>
+          <SectionLabel className="justify-center mb-8">Methodology</SectionLabel>
         </motion.div>
         
         <motion.h1 
@@ -38,7 +38,7 @@ export default function HowWeWorkHeroSection() {
           transition={{ delay: prefersReduced ? 0 : 0.3, duration: 0.5 }} 
           className="text-graphite text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
         >
-          We don’t just build software. We craft permanent digital lineages. Discover the core values, processes, and tools that drive the SOYL AI intelligence architecture.
+          We don&apos;t just build software. We craft permanent digital lineages. Discover the core values, processes, and tools that drive the SOYL AI intelligence architecture.
         </motion.p>
       </div>
       

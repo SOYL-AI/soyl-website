@@ -43,7 +43,10 @@ export default function ToolsPracticesSection() {
                 viewport={{ once: true, amount: 0.1 }}
                 className="flex items-start gap-4 group"
               >
-                <div className="w-6 h-6 rounded-full bg-mint/5 border border-mint/20 flex flex-col items-center justify-center text-mint flex-shrink-0 group-hover:bg-mint/10 group-hover:scale-110 transition-all">
+                <div className={[
+                  'w-6 h-6 rounded-full bg-mint/5 border border-mint/20 flex flex-col items-center justify-center text-mint flex-shrink-0 group-hover:bg-mint/10 transition-all',
+                  prefersReduced ? '' : 'group-hover:scale-110',
+                ].join(' ')}>
                   <CheckCircle2 size={12} className="opacity-70 group-hover:opacity-100" />
                 </div>
                 <span className="text-soyl-white font-medium text-sm md:text-base tracking-wide leading-tight mt-[3px] group-hover:text-mint transition-colors">
