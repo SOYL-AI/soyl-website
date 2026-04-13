@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
 import StaggerContainer from '@/components/motion/StaggerContainer'
 import FadeInUp from '@/components/motion/FadeInUp'
@@ -11,6 +11,8 @@ const VALUES = [
 ]
 
 export default function ValuesSection() {
+  const prefersReduced = useReducedMotion()
+
   return (
     <section className="bg-obsidian border-y border-mint/5 py-24">
       <div className="max-w-content mx-auto px-6 lg:px-16">
@@ -24,8 +26,8 @@ export default function ValuesSection() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {VALUES.map((value, i) => (
             <FadeInUp key={i}>
-              <motion.div 
-                whileHover={{ y: -6 }}
+              <motion.div
+                whileHover={prefersReduced ? {} : { y: -6 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                 className="bg-card-bg border border-mint/10 hover:border-mint/30 rounded-xl p-8 flex flex-col items-start gap-5 transition-colors duration-300 h-full"
               >

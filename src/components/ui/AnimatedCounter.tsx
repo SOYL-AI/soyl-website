@@ -9,9 +9,8 @@ export default function AnimatedCounter({ target, suffix = '' }: { target: numbe
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    if (!isInView) return
-    // Reduced motion: jump to target immediately
-    if (prefersReduced) { setCount(target); return }
+    // Reduced motion: skip animation — value derived in render below
+    if (!isInView || prefersReduced) return
 
     const duration = 1500
     const start = performance.now()
@@ -27,5 +26,8 @@ export default function AnimatedCounter({ target, suffix = '' }: { target: numbe
     requestAnimationFrame(tick)
   }, [isInView, target, prefersReduced])
 
-  return <span ref={ref}>{count}{suffix}</span>
+  // For reduced motion users: show target immediately once in view, no setState in effect
+  const displayCount = prefersReduced && isInView ? target : count
+
+  return <span ref={ref}>{displayCount}{suffix}</span>
 }

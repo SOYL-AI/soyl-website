@@ -24,7 +24,7 @@ export default function MissionVisionSection() {
               To index human experience so it is never lost to time.
             </h3>
             <p className="text-graphite leading-relaxed">
-              We believe every person's story holds immense value. Our mission is to provide the intelligence layer that captures, analyzes, and beautifully preserves these narratives for generations.
+              We believe every person&apos;s story holds immense value. Our mission is to provide the intelligence layer that captures, analyzes, and beautifully preserves these narratives for generations.
             </p>
           </motion.div>
 
@@ -41,7 +41,7 @@ export default function MissionVisionSection() {
               A world where profound insights are accessible to everyone.
             </h3>
             <p className="text-graphite leading-relaxed">
-              We envision a future where AI isn't just a productivity tool, but an empathic companion capable of weaving scattered moments into meaningful, coherent legacies.
+              We envision a future where AI isn&apos;t just a productivity tool, but an empathic companion capable of weaving scattered moments into meaningful, coherent legacies.
             </p>
           </motion.div>
 

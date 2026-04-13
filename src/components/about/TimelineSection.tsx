@@ -21,7 +21,7 @@ export default function TimelineSection() {
   const lineRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
-    let mm = gsap.matchMedia()
+    const mm = gsap.matchMedia()
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       // 1. Draw Axis Line

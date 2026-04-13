@@ -24,11 +24,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [pathname])
-
   return (
     <nav className={cn(
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
@@ -93,6 +88,7 @@ export default function Navbar() {
             <div className="px-6 py-4 flex flex-col gap-4">
               {NAV_LINKS.map(link => (
                 <Link key={link.href} href={link.href}
+                  onClick={() => setMenuOpen(false)}
                   className={cn(
                     'text-sm transition-colors',
                     pathname === link.href || pathname.startsWith(link.href + '/')

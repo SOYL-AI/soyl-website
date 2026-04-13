@@ -8,7 +8,7 @@ export default function CTAStripSection() {
           Ready to tell your story?
         </h2>
         <p className="text-graphite mb-10 max-w-lg mx-auto">
-          Whether you're looking to integrate our products or collaborate on groundbreaking AI research, we're here to talk.
+          Whether you&apos;re looking to integrate our products or collaborate on groundbreaking AI research, we&apos;re here to talk.
         </p>
         <Button href="/contact" variant="primary">
           Work with us →
