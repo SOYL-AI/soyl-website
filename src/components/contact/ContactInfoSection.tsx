@@ -1,7 +1,10 @@
 'use client'
 import { Mail, MapPin, MessageSquare, Terminal, Network } from 'lucide-react'
+import { useReducedMotion } from 'framer-motion'
 
 export default function ContactInfoSection() {
+  const prefersReduced = useReducedMotion()
+
   return (
     <section className="bg-obsidian border-t border-mint/5 py-16 md:py-24 relative z-10 w-full">
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
@@ -9,7 +12,10 @@ export default function ContactInfoSection() {
           
           {/* Email Direct Channel Block */}
           <div className="flex flex-col items-center md:items-start group">
-            <div className="w-12 h-12 rounded-2xl bg-mint/5 border border-mint/20 flex flex-col items-center justify-center text-mint mb-5 group-hover:bg-mint/10 group-hover:scale-110 transition-all duration-300">
+            <div className={[
+              'w-12 h-12 rounded-2xl bg-mint/5 border border-mint/20 flex flex-col items-center justify-center text-mint mb-5 group-hover:bg-mint/10 transition-all duration-300',
+              prefersReduced ? '' : 'group-hover:scale-110',
+            ].join(' ')}>
               <Mail size={20} />
             </div>
             <h3 className="font-heading font-medium text-lg text-soyl-white mb-2 tracking-wide">Direct Channel</h3>
@@ -21,7 +27,10 @@ export default function ContactInfoSection() {
 
           {/* Physical Node Location Block */}
           <div className="flex flex-col items-center md:items-start group">
-            <div className="w-12 h-12 rounded-2xl bg-mint/5 border border-mint/20 flex flex-col items-center justify-center text-mint mb-5 group-hover:bg-mint/10 group-hover:scale-110 transition-all duration-300">
+            <div className={[
+              'w-12 h-12 rounded-2xl bg-mint/5 border border-mint/20 flex flex-col items-center justify-center text-mint mb-5 group-hover:bg-mint/10 transition-all duration-300',
+              prefersReduced ? '' : 'group-hover:scale-110',
+            ].join(' ')}>
               <MapPin size={20} />
             </div>
             <h3 className="font-heading font-medium text-lg text-soyl-white mb-2 tracking-wide">Physical Nodes</h3>
@@ -34,19 +43,31 @@ export default function ContactInfoSection() {
 
           {/* Digital Social Footprint Block */}
           <div className="flex flex-col items-center md:items-start group">
-            <div className="w-12 h-12 rounded-2xl bg-mint/5 border border-mint/20 flex flex-col items-center justify-center text-mint mb-5 group-hover:bg-mint/10 group-hover:scale-110 transition-all duration-300">
+            <div className={[
+              'w-12 h-12 rounded-2xl bg-mint/5 border border-mint/20 flex flex-col items-center justify-center text-mint mb-5 group-hover:bg-mint/10 transition-all duration-300',
+              prefersReduced ? '' : 'group-hover:scale-110',
+            ].join(' ')}>
               <span className="font-mono text-lg font-bold">@</span>
             </div>
             <h3 className="font-heading font-medium text-lg text-soyl-white mb-2 tracking-wide">Digital Footprint</h3>
             <p className="text-graphite/70 text-sm mb-4 max-w-[250px] leading-relaxed">Track our ongoing architectural framework updates across our external network feeds.</p>
             <div className="flex items-center gap-5">
-              <a href="https://twitter.com/soyl_ai" target="_blank" rel="noopener noreferrer" className="text-graphite hover:text-mint hover:-translate-y-1 transition-all duration-300" aria-label="Twitter">
+              <a href="https://twitter.com/soyl_ai" target="_blank" rel="noopener noreferrer" className={[
+                'text-graphite hover:text-mint transition-all duration-300',
+                prefersReduced ? '' : 'hover:-translate-y-1',
+              ].join(' ')} aria-label="Twitter">
                 <MessageSquare size={20} />
               </a>
-              <a href="https://github.com/soyl-ai" target="_blank" rel="noopener noreferrer" className="text-graphite hover:text-mint hover:-translate-y-1 transition-all duration-300" aria-label="GitHub">
+              <a href="https://github.com/soyl-ai" target="_blank" rel="noopener noreferrer" className={[
+                'text-graphite hover:text-mint transition-all duration-300',
+                prefersReduced ? '' : 'hover:-translate-y-1',
+              ].join(' ')} aria-label="GitHub">
                 <Terminal size={20} />
               </a>
-              <a href="https://linkedin.com/company/soyl-ai" target="_blank" rel="noopener noreferrer" className="text-graphite hover:text-mint hover:-translate-y-1 transition-all duration-300" aria-label="LinkedIn">
+              <a href="https://linkedin.com/company/soyl-ai" target="_blank" rel="noopener noreferrer" className={[
+                'text-graphite hover:text-mint transition-all duration-300',
+                prefersReduced ? '' : 'hover:-translate-y-1',
+              ].join(' ')} aria-label="LinkedIn">
                 <Network size={20} />
               </a>
             </div>

@@ -34,7 +34,7 @@ export default function ContactHeroSection() {
           transition={{ delay: prefersReduced ? 0 : 0.2, duration: 0.5 }} 
           className="text-graphite text-lg md:text-xl leading-relaxed max-w-2xl"
         >
-          Whether you're looking to explore our enterprise architecture, partner on experiential mapping, or just say hello, our nodes are seamlessly open.
+          Whether you&apos;re looking to explore our enterprise architecture, partner on experiential mapping, or just say hello, our nodes are seamlessly open.
         </motion.p>
 
       </div>

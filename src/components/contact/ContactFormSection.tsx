@@ -1,18 +1,24 @@
 'use client'
 import { useActionState, useEffect, useState } from 'react'
 import { useFormStatus } from 'react-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { Send, Loader2, CheckCircle, AlertTriangle } from 'lucide-react'
 import { submitContact, type ContactFormState } from '@/app/actions/contact'
 
 function SubmitButton() {
   const { pending } = useFormStatus()
-  
+  const prefersReduced = useReducedMotion()
+
   return (
-    <button 
-      type="submit" 
+    <button
+      type="submit"
       disabled={pending}
-      className={`w-full py-4 mt-2 rounded-xl flex items-center justify-center gap-3 font-heading font-medium tracking-wide transition-all duration-500 overflow-hidden relative ${pending ? 'bg-mint/10 text-mint/50 cursor-not-allowed border border-mint/20' : 'bg-mint text-obsidian hover:bg-mint/90 hover:shadow-[0_0_25px_rgba(175,208,204,0.3)] hover:-translate-y-1'}`}
+      className={[
+        'w-full py-4 mt-2 rounded-xl flex items-center justify-center gap-3 font-heading font-medium tracking-wide transition-all duration-500 overflow-hidden relative',
+        pending
+          ? 'bg-mint/10 text-mint/50 cursor-not-allowed border border-mint/20'
+          : ['bg-mint text-obsidian hover:bg-mint/90 hover:shadow-[0_0_25px_rgba(175,208,204,0.3)]', prefersReduced ? '' : 'hover:-translate-y-1'].join(' '),
+      ].join(' ')}
     >
       {pending ? (
         <>
@@ -32,15 +38,20 @@ function SubmitButton() {
 const initialState: ContactFormState = { status: 'idle' }
 
 export default function ContactFormSection() {
+  const prefersReduced = useReducedMotion()
   const [state, formAction] = useActionState(submitContact, initialState)
   const [shake, setShake] = useState(false)
 
   // Trigger brief x-axis vibration exclusively upon target rejection.
+  // Both setShake calls are in setTimeout callbacks to avoid synchronous setState in effect.
   useEffect(() => {
     if (state.status === 'error') {
-      setShake(true)
-      const timer = setTimeout(() => setShake(false), 500)
-      return () => clearTimeout(timer)
+      const leadTimer = setTimeout(() => setShake(true), 0)
+      const trailTimer = setTimeout(() => setShake(false), 520)
+      return () => {
+        clearTimeout(leadTimer)
+        clearTimeout(trailTimer)
+      }
     }
   }, [state])
 
@@ -51,9 +62,9 @@ export default function ContactFormSection() {
           {state.status === 'success' ? (
              <motion.div
                key="success-card"
-               initial={{ opacity: 0, y: 50, scale: 0.95 }}
+               initial={prefersReduced ? { opacity: 1 } : { opacity: 0, y: 50, scale: 0.95 }}
                animate={{ opacity: 1, y: 0, scale: 1 }}
-               transition={{ duration: 0.6, type: 'spring' }}
+               transition={prefersReduced ? { duration: 0 } : { duration: 0.6, type: 'spring' }}
                className="bg-elevated border border-mint/30 rounded-[2rem] p-12 md:p-16 shadow-[0_20px_60px_rgba(175,208,204,0.15)] backdrop-blur-xl flex flex-col items-center justify-center text-center mt-12"
              >
                 <div className="w-20 h-20 rounded-full bg-mint/10 border border-mint/30 flex items-center justify-center text-mint mb-6 relative">
@@ -70,10 +81,14 @@ export default function ContactFormSection() {
           ) : (
              <motion.div
                key="form-card"
-               initial={{ opacity: 0, y: 20 }}
-               animate={shake ? { x: [-10, 10, -10, 10, 0] } : { opacity: 1, y: 0, x: 0 }}
-               exit={{ opacity: 0, scale: 0.95, y: -20, filter: 'blur(10px)' }}
-               transition={{ duration: 0.4 }}
+               initial={prefersReduced ? { opacity: 1 } : { opacity: 0, y: 20 }}
+               animate={
+                 shake && !prefersReduced
+                   ? { opacity: 1, y: 0, x: [-10, 10, -10, 10, 0] }
+                   : { opacity: 1, y: 0, x: 0 }
+               }
+               exit={prefersReduced ? { opacity: 0 } : { opacity: 0, scale: 0.95, y: -20, filter: 'blur(10px)' }}
+               transition={prefersReduced ? { duration: 0 } : { duration: 0.4 }}
                className="bg-elevated border border-mint/20 rounded-[2rem] p-8 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl"
              >
                 <form action={formAction} className="flex flex-col gap-6 w-full">
@@ -137,9 +152,9 @@ export default function ContactFormSection() {
                   <div aria-live="polite" className="h-6 flex items-center justify-center w-full">
                     <AnimatePresence>
                       {state.status === 'error' && state.message && (
-                        <motion.div 
-                          initial={{ opacity: 0, y: 5 }} 
-                          animate={{ opacity: 1, y: 0 }} 
+                        <motion.div
+                          initial={{ opacity: prefersReduced ? 1 : 0, y: prefersReduced ? 0 : 5 }}
+                          animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0 }}
                           className="flex items-center gap-2 text-red-400 text-sm font-mono border border-red-500/20 bg-red-500/10 px-4 py-1.5 rounded-md"
                         >
