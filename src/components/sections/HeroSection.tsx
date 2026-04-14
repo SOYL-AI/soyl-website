@@ -25,25 +25,25 @@ export default function HeroSection() {
           {/* Left — Text */}
           <div className="lg:col-span-3 flex flex-col justify-center py-8 lg:py-16">
             <motion.p initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.1, duration: 0.5 }} className="text-mint text-xs tracking-[0.22em] uppercase mb-4 flex items-center gap-3">
-              AI-Powered Innovation
+              DEEP-TECH AI · BUILT IN INDIA
               <span className="w-10 h-px bg-mint opacity-40 inline-block" />
             </motion.p>
             <motion.h1 initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.25, duration: 0.6 }} className="font-display font-bold text-soyl-white leading-[1.05] mb-2" style={{ fontSize: 'clamp(52px, 7vw, 96px)' }}>
               SOYL AI
             </motion.h1>
             <motion.h1 initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.4, duration: 0.6 }} className="font-display font-bold text-soyl-white leading-[1.05] mb-3" style={{ fontSize: 'clamp(52px, 7vw, 96px)' }}>
-              Private Limited
+              PRIVATE LIMITED
             </motion.h1>
-            <motion.p initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.55, duration: 0.5 }} className="font-display text-mint text-lg md:text-xl mb-6">Story Of Your Life</motion.p>
+            <motion.p initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.55, duration: 0.5 }} className="font-display text-mint text-lg md:text-xl mb-6">STORY OF YOUR LIFE</motion.p>
             <motion.p initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.7, duration: 0.5 }} className="text-graphite max-w-[480px] mb-8">
-              We build AI solutions that capture, understand, and preserve human experiences — turning the story of every life into lasting, meaningful intelligence.
+              Every life is a story. Every story deserves intelligence that listens. SOYL AI builds voice, hardware, and software that turn human experience into the next generation of technology — privately, locally, and beautifully.
             </motion.p>
             <motion.div initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.85, duration: 0.5 }} className="flex flex-wrap gap-4">
               <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-mint text-mint hover:bg-mint hover:text-obsidian transition-all duration-200">
-                Get Started →
+                Explore Our Products →
               </Link>
-              <Link href="/library" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-graphite text-soyl-white hover:border-mint hover:text-mint transition-all duration-200">
-                View Research →
+              <Link href="/about" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-graphite text-soyl-white hover:border-mint hover:text-mint transition-all duration-200">
+                Read Our Story (About us) →
               </Link>
             </motion.div>
           </div>
