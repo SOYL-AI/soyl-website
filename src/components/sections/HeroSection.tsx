@@ -43,7 +43,7 @@ export default function HeroSection() {
                 Explore Our Products →
               </Link>
               <Link href="/about" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-graphite text-soyl-white hover:border-mint hover:text-mint transition-all duration-200">
-                Read Our Story (About us) →
+                Read Our Story →
               </Link>
             </motion.div>
           </div>
