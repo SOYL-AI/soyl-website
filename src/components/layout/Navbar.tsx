@@ -7,10 +7,11 @@ import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
-  { label: 'About',       href: '/about' },
-  { label: 'Products',    href: '/products' },
-  { label: 'How We Work', href: '/how-we-work' },
-  { label: 'Library',     href: '/library' },
+  { label: 'About',         href: '/about' },
+  { label: 'Products',      href: '/products' },
+  { label: 'How We Work',   href: '/how-we-work' },
+  { label: 'Library',       href: '/library' },
+  { label: 'Speak with AI', href: '/speak' },
 ]
 
 export default function Navbar() {
@@ -59,9 +60,9 @@ export default function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <Link href="/products"
+        <Link href="/speak"
           className="hidden md:inline-flex items-center px-4 py-2 text-sm border border-mint/40 text-mint rounded hover:bg-mint hover:text-obsidian transition-all duration-200">
-          Get Started
+          Speak with AI
         </Link>
 
         {/* Mobile menu toggle */}

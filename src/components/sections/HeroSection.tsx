@@ -39,11 +39,11 @@ export default function HeroSection() {
               Every life is a story. Every story deserves intelligence that listens. SOYL AI builds voice, hardware, and software that turn human experience into the next generation of technology — privately, locally, and beautifully.
             </motion.p>
             <motion.div initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.85, duration: 0.5 }} className="flex flex-wrap gap-4">
-              <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-mint text-mint hover:bg-mint hover:text-obsidian transition-all duration-200">
-                Explore Our Products →
+              <Link href="/speak" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-mint text-mint hover:bg-mint hover:text-obsidian transition-all duration-200">
+                Speak with AI →
               </Link>
-              <Link href="/about" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-graphite text-soyl-white hover:border-mint hover:text-mint transition-all duration-200">
-                Read Our Story →
+              <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-graphite text-soyl-white hover:border-mint hover:text-mint transition-all duration-200">
+                Explore Products →
               </Link>
             </motion.div>
           </div>
