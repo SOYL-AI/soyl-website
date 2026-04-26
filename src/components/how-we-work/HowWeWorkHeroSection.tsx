@@ -29,7 +29,7 @@ export default function HowWeWorkHeroSection() {
           className="font-display font-bold text-soyl-white leading-[1.05] mb-8" 
           style={{ fontSize: 'clamp(48px, 8vw, 92px)' }}
         >
-          The Engine <br className="hidden md:block" /> Behind the Echo
+          How we ship.
         </motion.h1>
         
         <motion.p 
@@ -38,7 +38,7 @@ export default function HowWeWorkHeroSection() {
           transition={{ delay: prefersReduced ? 0 : 0.3, duration: 0.5 }} 
           className="text-graphite text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
         >
-          We don&apos;t just build software. We craft permanent digital lineages. Discover the core values, processes, and tools that drive the SOYL AI intelligence architecture.
+          Small team. Real users. Production from day one. Here&apos;s how SOYL AI builds — and what we refuse to build.
         </motion.p>
       </div>
       

@@ -53,7 +53,7 @@ export default function AboutHeroSection() {
               transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
               className="bg-clip-text text-transparent bg-gradient-to-r from-soyl-white via-mint to-soyl-white bg-[length:200%_auto]"
             >
-              Preserving Human Experience<br className="hidden md:block" /> through AI
+              Voice, hardware, and software<br className="hidden md:block" /> — engineered for the human story.
             </motion.span>
           </motion.h1>
           
@@ -63,7 +63,7 @@ export default function AboutHeroSection() {
             transition={{ delay: prefersReduced ? 0 : 0.4, duration: 0.5 }} 
             className="text-graphite text-lg md:text-xl md:leading-relaxed max-w-3xl mx-auto"
           >
-            SOYL AI is dedicated to capturing, understanding, and preserving human stories. We build intelligent solutions that turn the narrative of every life into lasting, meaningful insight.
+            SOYL AI is a Bengaluru-based deep-tech company. We build voice AI for hotels, privacy-first personal AI for homes, and consumer apps for daily life. Founded February 2026, shipping since day one.
           </motion.p>
         </div>
       </div>

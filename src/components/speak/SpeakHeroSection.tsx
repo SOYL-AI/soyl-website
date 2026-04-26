@@ -31,7 +31,7 @@ export default function SpeakHeroSection() {
             animate={animateState}
             transition={{ delay: prefersReduced ? 0 : 0.1, duration: 0.5 }}
           >
-            <SectionLabel className="justify-center mb-6">Genesis Interface</SectionLabel>
+            <SectionLabel className="justify-center mb-6">Butler AI · Live Demo</SectionLabel>
           </motion.div>
 
           <motion.h1
@@ -46,7 +46,7 @@ export default function SpeakHeroSection() {
               transition={{ repeat: Infinity, duration: 10, ease: 'linear' }}
               className="bg-clip-text text-transparent bg-gradient-to-r from-soyl-white via-mint to-soyl-white bg-[length:200%_auto]"
             >
-              Speak with Genesis
+              Speak with Butler
             </motion.span>
           </motion.h1>
 
@@ -56,8 +56,7 @@ export default function SpeakHeroSection() {
             transition={{ delay: prefersReduced ? 0 : 0.4, duration: 0.5 }}
             className="text-graphite text-lg md:text-xl md:leading-relaxed"
           >
-            Ask anything about SOYL AI&apos;s products, research, and vision.
-            Genesis listens, retrieves, and responds.
+            Butler AI is our voice-first PMS for hotels. Try it here, ask anything a hotel guest might ask — bookings, room service, late checkout, local recommendations.
           </motion.p>
         </div>
       </div>

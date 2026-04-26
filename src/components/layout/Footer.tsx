@@ -4,7 +4,7 @@ import Image from 'next/image'
 const LINKS = {
   Company: [{ label: 'About', href: '/about' }, { label: 'How We Work', href: '/how-we-work' }],
   Products: [{ label: 'All Products', href: '/products' }],
-  Library: [{ label: 'Blogs', href: '/library' }, { label: 'Research', href: '/library' }],
+  Library: [{ label: 'Blogs', href: '/library' }, { label: 'Research (soon)', href: '/library' }],
   Contact: [{ label: 'Get in Touch', href: '/contact' }],
 }
 

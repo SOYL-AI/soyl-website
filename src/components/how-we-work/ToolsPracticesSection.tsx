@@ -4,12 +4,12 @@ import { CheckCircle2 } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
 
 const PRACTICES = [
-  "End-to-End Type Safety (TypeScript, tRPC)",
-  "Immutable Decentralized Ledgers",
-  "Zero-Knowledge Sandboxing",
-  "Procedural GSAP/Framer Animations",
-  "Multi-Modal Cognitive Indexing",
-  "Turbopack Edge Compiling"
+  "FastAPI + LangGraph for multi-agent orchestration",
+  "PostgreSQL + pgvector for retrieval and memory",
+  "Asterisk PBX + Twilio SIP for sub-3s voice",
+  "AMD Ryzen AI NPUs for on-property edge inference",
+  "Next.js 16 + Tailwind v4 for every product surface",
+  "Self-hosted on Hetzner — cost-efficient by design",
 ]
 
 export default function ToolsPracticesSection() {
@@ -25,10 +25,10 @@ export default function ToolsPracticesSection() {
         <div className="md:col-span-5 flex flex-col items-start">
           <SectionLabel>Architecture</SectionLabel>
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-soyl-white mt-2 mb-6">
-            Stack & Practices
+            Stack & practices
           </h2>
           <p className="text-graphite text-lg leading-relaxed max-w-lg">
-            A ruthless distillation of modern web and AI tools. We discard bloated frameworks in favor of lightning-fast, edge-ready dependencies that empower instantaneous cognitive indexing.
+            A small set of opinionated, production-grade tools — chosen for cost, latency, and reliability. We pick boring where we can, sharp where we have to, and we own our infrastructure end-to-end.
           </p>
         </div>
 

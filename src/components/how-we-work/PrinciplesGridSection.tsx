@@ -5,10 +5,10 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import { staggerContainer, fadeInUp } from '@/lib/motion'
 
 const PRINCIPLES = [
-  { icon: Search, title: 'Transparency', desc: 'Operating with open algorithms and verifiable processing flows, ensuring you understand exactly how your data is handled.' },
-  { icon: RotateCw, title: 'Iteration', desc: 'Deploying continuous intelligence loops that dynamically adapt to new contexts and shifting user behavioral models.' },
-  { icon: Target, title: 'Impact', desc: 'Focusing exclusively on infrastructure that pushes the narrative forward, ignoring vanity metrics in favor of true utility.' },
-  { icon: Hammer, title: 'Craft', desc: 'Enforcing a unified standard of meticulous design and robust architecture across every component we ship.' }
+  { icon: Search, title: 'Build, then talk', desc: 'We ship before we pitch. Pilots in production before pages on a website.' },
+  { icon: RotateCw, title: 'Iterate ruthlessly', desc: 'Every release teaches us something. We update our beliefs and the product on the same day.' },
+  { icon: Target, title: 'Local-first by default', desc: 'Where it can run on your hardware, it does. Privacy is an architecture decision.' },
+  { icon: Hammer, title: 'Craft the small things', desc: 'A loading state, a voice latency, a mint border — the small things compound into the feel of the product.' }
 ]
 
 export default function PrinciplesGridSection() {

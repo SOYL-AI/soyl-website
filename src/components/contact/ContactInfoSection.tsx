@@ -1,5 +1,5 @@
 'use client'
-import { Mail, MapPin, MessageSquare, Terminal, Network } from 'lucide-react'
+import { Mail, MapPin, Terminal, Network } from 'lucide-react'
 import { useReducedMotion } from 'framer-motion'
 
 export default function ContactInfoSection() {
@@ -18,10 +18,10 @@ export default function ContactInfoSection() {
             ].join(' ')}>
               <Mail size={20} />
             </div>
-            <h3 className="font-heading font-medium text-lg text-soyl-white mb-2 tracking-wide">Direct Channel</h3>
-            <p className="text-graphite/70 text-sm mb-3 max-w-[250px] leading-relaxed">For inquiries mapping to architectural integrations or dedicated enterprise support.</p>
-            <a href="mailto:hello@soyl.ai" className="text-mint font-mono text-sm uppercase tracking-widest hover:text-soyl-white transition-colors">
-              hello@soyl.ai
+            <h3 className="font-heading font-medium text-lg text-soyl-white mb-2 tracking-wide">Email</h3>
+            <p className="text-graphite/70 text-sm mb-3 max-w-[250px] leading-relaxed">For pilots, partnerships, and people who just want to say hi.</p>
+            <a href="mailto:ryan.gomez@soyl.cloud" className="text-mint font-mono text-sm uppercase tracking-widest hover:text-soyl-white transition-colors break-all">
+              ryan.gomez@soyl.cloud
             </a>
           </div>
 
@@ -33,11 +33,11 @@ export default function ContactInfoSection() {
             ].join(' ')}>
               <MapPin size={20} />
             </div>
-            <h3 className="font-heading font-medium text-lg text-soyl-white mb-2 tracking-wide">Physical Nodes</h3>
-            <p className="text-graphite/70 text-sm mb-3 max-w-[250px] leading-relaxed">Our physical architecture relies on decentralized nodes, but HQ is heavily concentrated here.</p>
+            <h3 className="font-heading font-medium text-lg text-soyl-white mb-2 tracking-wide">Location</h3>
+            <p className="text-graphite/70 text-sm mb-3 max-w-[250px] leading-relaxed">HQ in Bengaluru. We work with partners across India and the rest of the world.</p>
             <address className="text-graphite font-mono text-sm uppercase tracking-widest not-italic leading-relaxed">
-              San Francisco, CA<br/>
-              Planet Earth
+              Bengaluru, Karnataka<br/>
+              India
             </address>
           </div>
 
@@ -49,14 +49,14 @@ export default function ContactInfoSection() {
             ].join(' ')}>
               <span className="font-mono text-lg font-bold">@</span>
             </div>
-            <h3 className="font-heading font-medium text-lg text-soyl-white mb-2 tracking-wide">Digital Footprint</h3>
-            <p className="text-graphite/70 text-sm mb-4 max-w-[250px] leading-relaxed">Track our ongoing architectural framework updates across our external network feeds.</p>
+            <h3 className="font-heading font-medium text-lg text-soyl-white mb-2 tracking-wide">Social</h3>
+            <p className="text-graphite/70 text-sm mb-4 max-w-[250px] leading-relaxed">Follow along as we build. We post when we ship, not before.</p>
             <div className="flex items-center gap-5">
-              <a href="https://twitter.com/soyl_ai" target="_blank" rel="noopener noreferrer" className={[
+              <a href="https://linkedin.com/company/soyl-ai" target="_blank" rel="noopener noreferrer" className={[
                 'text-graphite hover:text-mint transition-all duration-300',
                 prefersReduced ? '' : 'hover:-translate-y-1',
-              ].join(' ')} aria-label="Twitter">
-                <MessageSquare size={20} />
+              ].join(' ')} aria-label="LinkedIn">
+                <Network size={20} />
               </a>
               <a href="https://github.com/soyl-ai" target="_blank" rel="noopener noreferrer" className={[
                 'text-graphite hover:text-mint transition-all duration-300',
@@ -64,11 +64,11 @@ export default function ContactInfoSection() {
               ].join(' ')} aria-label="GitHub">
                 <Terminal size={20} />
               </a>
-              <a href="https://linkedin.com/company/soyl-ai" target="_blank" rel="noopener noreferrer" className={[
+              <a href="mailto:ryan.gomez@soyl.cloud" className={[
                 'text-graphite hover:text-mint transition-all duration-300',
                 prefersReduced ? '' : 'hover:-translate-y-1',
-              ].join(' ')} aria-label="LinkedIn">
-                <Network size={20} />
+              ].join(' ')} aria-label="Email">
+                <Mail size={20} />
               </a>
             </div>
           </div>

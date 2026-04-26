@@ -16,7 +16,7 @@ export default function ContactHeroSection() {
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full relative z-10 flex flex-col items-center text-center">
         
         <motion.div initial={initialState} animate={animateState} transition={{ duration: 0.5 }}>
-          <SectionLabel className="justify-center">Initiate Connection</SectionLabel>
+          <SectionLabel className="justify-center">Contact</SectionLabel>
         </motion.div>
         
         <motion.h1 
@@ -25,7 +25,7 @@ export default function ContactHeroSection() {
           transition={{ delay: prefersReduced ? 0 : 0.1, duration: 0.6 }} 
           className="font-heading font-bold text-4xl md:text-6xl lg:text-[80px] text-soyl-white tracking-tight mt-6 mb-6 leading-none"
         >
-          Get in Touch
+          Get in touch
         </motion.h1>
         
         <motion.p 
@@ -34,7 +34,7 @@ export default function ContactHeroSection() {
           transition={{ delay: prefersReduced ? 0 : 0.2, duration: 0.5 }} 
           className="text-graphite text-lg md:text-xl leading-relaxed max-w-2xl"
         >
-          Whether you&apos;re looking to explore our enterprise architecture, partner on experiential mapping, or just say hello, our nodes are seamlessly open.
+          Pilots, partnerships, hires, or just hi — drop us a line and we&apos;ll get back. We read every message, and we reply to almost all of them.
         </motion.p>
 
       </div>

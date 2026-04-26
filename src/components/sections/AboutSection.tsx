@@ -6,9 +6,9 @@ import AnimatedCounter from '@/components/ui/AnimatedCounter'
 import { slideInLeft, slideInRight } from '@/lib/motion'
 
 const STATS = [
-  { target: 2025, suffix: '', label: 'Founded' },
+  { target: 2026, suffix: '', label: 'Founded' },
   { target: 3, suffix: '', label: 'Products in Build' },
-  { target: 12, suffix: '+', label: 'Papers & Whitepapers' },
+  { target: 1, suffix: '', label: 'Active Pilot' },
   { target: 20, suffix: '+', label: 'Builders on the Team' },
 ]
 
@@ -29,18 +29,18 @@ export default function AboutSection() {
           >
             <SectionLabel>OUR STORY</SectionLabel>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-soyl-white mb-6 leading-tight">
-              Building AI That Understands the Human Story
+              Engineered in Bengaluru. Built to ship.
             </h2>
             <div className="text-graphite leading-relaxed mb-6 space-y-4">
               <p>
-                Founded in 2025 by two engineers who'd rather build than talk about building, SOYL AI is an Indian deep-tech company shipping voice AI, private hardware, and lifestyle software.
+                Founded in February 2026 by two engineers who&apos;d rather build than talk about building, SOYL AI is a deep-tech company shipping voice AI for hospitality, private personal AI hardware, and consumer software for daily life.
               </p>
               <p>
                 One belief drives all of it: every problem worth solving begins with a human story.
               </p>
             </div>
             <Link href="/about" className="text-soyl-white text-sm font-medium hover:text-mint transition-colors link-underline">
-              Read Our Story →
+              Read our story →
             </Link>
           </motion.div>
 
