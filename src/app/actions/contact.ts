@@ -21,29 +21,27 @@ export async function submitContact(prevState: ContactFormState, formData: FormD
   const errors: ContactFormState['errors'] = {}
   
   if (!name || name.trim() === '') {
-    errors.name = 'Initiator designation is required.'
-  }
-  
-  if (!email || !email.includes('@')) {
-    errors.email = 'Valid Com-Link signature required.'
-  }
-  
-  if (!message || message.trim() === '') {
-    errors.message = 'Transmission payload cannot be completely empty.'
+    errors.name = 'Please tell us your name.'
   }
 
-  // Intercept transmission on missing payload constraints.
+  if (!email || !email.includes('@')) {
+    errors.email = 'Please enter a valid email address.'
+  }
+
+  if (!message || message.trim() === '') {
+    errors.message = 'Please write a message.'
+  }
+
   if (Object.keys(errors).length > 0) {
     return {
       status: 'error',
-      message: 'Transmission rejected. Validation constraints breached.',
+      message: "Something's missing — check the highlighted fields.",
       errors
     }
   }
 
-  // Success path: Log integration.
   return {
     status: 'success',
-    message: 'Handshake complete. Transmission logged securely.'
+    message: 'Message received.'
   }
 }

@@ -23,12 +23,12 @@ function SubmitButton() {
       {pending ? (
         <>
           <Loader2 size={18} className="animate-spin" />
-          Processing Handshake...
+          Sending...
         </>
       ) : (
         <>
           <Send size={18} />
-          Initialize Connection
+          Send message
         </>
       )}
     </button>
@@ -72,10 +72,10 @@ export default function ContactFormSection() {
                   <CheckCircle size={40} className="relative z-10 drop-shadow-[0_0_15px_rgba(175,208,204,0.5)]" />
                 </div>
                 <h2 className="font-heading font-bold text-3xl md:text-4xl text-soyl-white tracking-tight mb-4">
-                  Transmission Verified
+                  Message sent
                 </h2>
                 <p className="text-graphite text-lg leading-relaxed max-w-md">
-                   Your signal has been securely encrypted and relayed to our internal nodes. We will initiate contact shortly.
+                   Thanks. We&apos;ll get back to you within a couple of business days. If it&apos;s about a Butler AI pilot, often faster.
                 </p>
              </motion.div>
           ) : (
@@ -96,7 +96,7 @@ export default function ContactFormSection() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                     {/* Name Structural Block */}
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="name" className="text-mint font-mono text-[10px] uppercase tracking-widest px-2 opacity-80">Initiator // Name</label>
+                      <label htmlFor="name" className="text-mint font-mono text-[10px] uppercase tracking-widest px-2 opacity-80">Your name</label>
                       <input 
                         type="text" 
                         id="name" 
@@ -110,7 +110,7 @@ export default function ContactFormSection() {
 
                     {/* Email Structural Block */}
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="email" className="text-mint font-mono text-[10px] uppercase tracking-widest px-2 opacity-80">Com-Link // Email</label>
+                      <label htmlFor="email" className="text-mint font-mono text-[10px] uppercase tracking-widest px-2 opacity-80">Email</label>
                       <input 
                         type="email" 
                         id="email" 
@@ -125,25 +125,25 @@ export default function ContactFormSection() {
 
                   {/* Company Structural Block */}
                   <div className="flex flex-col gap-2 w-full">
-                    <label htmlFor="company" className="text-mint font-mono text-[10px] uppercase tracking-widest px-2 opacity-80">Faction // Company [Optional]</label>
-                    <input 
-                      type="text" 
-                      id="company" 
-                      name="company" 
-                      placeholder="Enterprise Architecture Corp"
+                    <label htmlFor="company" className="text-mint font-mono text-[10px] uppercase tracking-widest px-2 opacity-80">Company (optional)</label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      placeholder="Acme Hotels"
                       className="bg-obsidian border border-mint/10 text-soyl-white text-sm rounded-xl px-5 py-4 focus:outline-none focus:border-mint/50 focus:bg-mint/5 placeholder:text-graphite/30 transition-all duration-300 font-mono shadow-inner"
                     />
                   </div>
 
                   {/* Message Layout Block */}
                   <div className="flex flex-col gap-2 w-full">
-                    <label htmlFor="message" className="text-mint font-mono text-[10px] uppercase tracking-widest px-2 opacity-80">Transmission // Detail Layer</label>
-                    <textarea 
-                      id="message" 
-                      name="message" 
+                    <label htmlFor="message" className="text-mint font-mono text-[10px] uppercase tracking-widest px-2 opacity-80">Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
                       rows={5}
                       required
-                      placeholder="Map your operational requirements..."
+                      placeholder="Tell us what you're working on, what you'd like help with, or just say hi."
                       className={`bg-obsidian border text-soyl-white text-sm rounded-xl px-5 py-4 focus:outline-none placeholder:text-graphite/30 transition-all duration-300 font-mono resize-y shadow-inner ${state.errors?.message ? 'border-red-500/50 focus:border-red-500 bg-red-500/[0.02]' : 'border-mint/10 focus:border-mint/50 focus:bg-mint/5'}`}
                     />
                     {state.errors?.message && <span className="text-red-400 text-xs font-mono ml-2 animate-pulse">{state.errors.message}</span>}

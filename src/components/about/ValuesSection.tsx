@@ -5,9 +5,9 @@ import StaggerContainer from '@/components/motion/StaggerContainer'
 import FadeInUp from '@/components/motion/FadeInUp'
 
 const VALUES = [
-  { title: 'Radical Transparency', desc: 'Open logic, explicit model confidences. We believe in building trust through total visibility.' },
-  { title: 'Ruthless Iteration', desc: 'We build fast, test meticulously, and refine endlessly. Good is never good enough.' },
-  { title: 'Human Centricity', desc: 'Technology serves people, not the other way around. Every decision optimizes for human empowerment.' }
+  { title: 'Build, then talk', desc: 'We ship before we pitch. Every claim on this site has running code or hardware behind it.' },
+  { title: 'Local-first by default', desc: 'Where it can run on your hardware, it should. Privacy is an architecture decision, not a marketing line.' },
+  { title: 'One human story at a time', desc: "Every product starts with a real person, a real problem, a real conversation. We refuse to build for personas we've never met." }
 ]
 
 export default function ValuesSection() {

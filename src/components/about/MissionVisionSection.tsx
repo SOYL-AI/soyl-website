@@ -21,10 +21,10 @@ export default function MissionVisionSection() {
           >
             <div className="mb-6"><SectionLabel>Our Mission</SectionLabel></div>
             <h3 className="font-heading font-bold text-2xl md:text-3xl text-soyl-white mb-4 leading-snug">
-              To index human experience so it is never lost to time.
+              Build AI infrastructure that serves people, not platforms.
             </h3>
             <p className="text-graphite leading-relaxed">
-              We believe every person&apos;s story holds immense value. Our mission is to provide the intelligence layer that captures, analyzes, and beautifully preserves these narratives for generations.
+              We build the intelligence layer for the moments that matter — a guest checking into a hotel, a family wanting privacy from the cloud, a person trying to remember to call their parents. Our mission is to make that layer feel native, not bolted-on.
             </p>
           </motion.div>
 
@@ -38,10 +38,10 @@ export default function MissionVisionSection() {
           >
             <div className="mb-6"><SectionLabel>Our Vision</SectionLabel></div>
             <h3 className="font-heading font-bold text-2xl md:text-3xl text-soyl-white mb-4 leading-snug">
-              A world where profound insights are accessible to everyone.
+              A world where AI runs on your terms — local, private, and yours.
             </h3>
             <p className="text-graphite leading-relaxed">
-              We envision a future where AI isn&apos;t just a productivity tool, but an empathic companion capable of weaving scattered moments into meaningful, coherent legacies.
+              We see a near future where every home owns its compute, every hospitality interaction is voice-first, and every meaningful daily problem has an AI built specifically for it. We&apos;re building toward that future from Bengaluru, one product at a time.
             </p>
           </motion.div>
 

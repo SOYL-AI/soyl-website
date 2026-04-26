@@ -10,10 +10,10 @@ if (typeof window !== 'undefined') {
 }
 
 const TIMELINE = [
-  { year: '2023', title: 'Inception', desc: 'SOYL AI was founded with a singular vision: to ensure no human story is ever lost.' },
-  { year: '2024', title: 'First Index', desc: 'Deployed our core narrative parsing algorithm, successfully processing over 10 million experiential datapoints.' },
-  { year: '2025', title: 'Empathic Release', desc: 'Launched the first public beta of our Empathic Companion, redefining humancentric AI interactions.' },
-  { year: '2026', title: 'Global Architecture', desc: 'Expanding our systems globally to provide decentralized, perfectly preserved legacy structures for millions.' }
+  { year: 'Feb 2026', title: 'Founded', desc: 'SOYL AI Private Limited incorporated in Bengaluru by Ryan Gomez and Siddharth Priyatam. The bet: voice AI, hardware, and lifestyle software, all from one team.' },
+  { year: 'Q2 2026', title: 'Butler AI Pilot', desc: 'First Butler AI PMS deployed at a 30-room independent hotel. Sub-3-second voice latency on real production traffic.' },
+  { year: 'Q3 2026', title: 'AI Dex R&D', desc: 'Hardware prototyping begins on Jetson Orin. The bet: a personal AI appliance that costs less than a year of ChatGPT Plus and runs entirely in your home.' },
+  { year: 'Late 2026', title: 'Scaling the team', desc: 'Engineering, design, and operations teams expand. Lifestyle Apps suite enters early development. The roadmap clarifies — three products, one intelligence layer.' }
 ]
 
 export default function TimelineSection() {

@@ -180,7 +180,7 @@ export default function SpeakInterface() {
                       )}
                     >
                       {msg.role === 'assistant' && (
-                        <span className="text-mint text-xs tracking-[0.15em] uppercase block mb-1.5 font-caption">Genesis</span>
+                        <span className="text-mint text-xs tracking-[0.15em] uppercase block mb-1.5 font-caption">Butler</span>
                       )}
                       {msg.content}
                     </div>
@@ -219,7 +219,7 @@ export default function SpeakInterface() {
             value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && !e.shiftKey && sendText()}
-            placeholder="Ask Genesis anything..."
+            placeholder="Ask Butler anything..."
             disabled={uiState !== 'idle'}
             className="flex-1 bg-obsidian border border-mint/10 rounded px-4 py-2.5 text-sm text-soyl-white placeholder:text-graphite/50 focus:outline-none focus:border-mint/30 transition-colors disabled:opacity-40"
           />
@@ -258,7 +258,7 @@ export default function SpeakInterface() {
       </div>
 
       <p className="text-center text-graphite/40 text-xs mt-4 tracking-wide">
-        Genesis is powered by SOYL AI&apos;s RAG pipeline — responses are grounded in our knowledge base.
+        Butler is powered by SOYL AI&apos;s voice and RAG pipeline — responses are grounded in our hospitality knowledge base.
       </p>
     </div>
   )

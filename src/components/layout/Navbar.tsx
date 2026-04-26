@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: 'Products',      href: '/products' },
   { label: 'How We Work',   href: '/how-we-work' },
   { label: 'Library',       href: '/library' },
-  { label: 'Speak with AI', href: '/speak' },
+  { label: 'Speak with Butler', href: '/speak' },
 ]
 
 export default function Navbar() {
@@ -62,7 +62,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <Link href="/speak"
           className="hidden md:inline-flex items-center px-4 py-2 text-sm border border-mint/40 text-mint rounded hover:bg-mint hover:text-obsidian transition-all duration-200">
-          Speak with AI
+          Try Butler →
         </Link>
 
         {/* Mobile menu toggle */}

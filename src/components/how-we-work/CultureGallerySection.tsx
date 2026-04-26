@@ -11,8 +11,8 @@ const BENTO_BLOCKS = [
     style: 'bg-gradient-to-br from-mint/10 to-transparent',
     content: (
       <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
-        <h3 className="font-heading font-bold text-3xl text-soyl-white mb-2 relative z-10">Deep Work Zones</h3>
-        <p className="text-graphite text-sm max-w-xs relative z-10">Quiet architecture optimized for uninterrupted cognitive flow and focus.</p>
+        <h3 className="font-heading font-bold text-3xl text-soyl-white mb-2 relative z-10">Bengaluru HQ</h3>
+        <p className="text-graphite text-sm max-w-xs relative z-10">A small team, a shared room, no cubicles. Where most of our shipping happens.</p>
         <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-mint/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
       </div>
     )
@@ -47,7 +47,7 @@ const BENTO_BLOCKS = [
     content: (
       <div className="absolute inset-0 flex flex-col justify-end p-6">
         <h3 className="font-heading font-medium text-lg text-soyl-white">Node Networks</h3>
-        <p className="text-graphite text-xs mt-1">Cross-team collaboration.</p>
+        <p className="text-graphite text-xs mt-1">Cross-team daily syncs.</p>
       </div>
     )
   },
@@ -58,7 +58,7 @@ const BENTO_BLOCKS = [
     content: (
       <div className="absolute inset-0 flex items-center justify-center p-8">
          <h3 className="font-heading font-medium text-xl text-graphite text-center max-w-sm leading-relaxed">
-            Iterative perfection across all architectural layers.
+            Iteration over perfection — across every layer of the stack.
          </h3>
       </div>
     )
@@ -69,8 +69,8 @@ const BENTO_BLOCKS = [
     style: 'bg-mint/[0.05]',
     content: (
       <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-10">
-        <h3 className="font-heading font-bold text-2xl text-soyl-white mb-2">Hardware Labs</h3>
-        <p className="text-graphite text-sm max-w-xs">Where local sandboxing and physical infrastructure securely intersect.</p>
+        <h3 className="font-heading font-bold text-2xl text-soyl-white mb-2">Hardware Lab</h3>
+        <p className="text-graphite text-sm max-w-xs">Where Jetson Orin nodes get prototyped, benched, and sometimes broken.</p>
       </div>
     )
   }

@@ -10,55 +10,55 @@ if (typeof window !== 'undefined') {
 }
 
 const EXPANDED_STEPS = [
-  { 
-    number: '01', 
-    title: 'Phase I: Discovery', 
-    description: 'We begin by deeply understanding the problem space, user needs, and business context before engineering begins.',
+  {
+    number: '01',
+    title: 'Phase I: Listen',
+    description: "Every product starts with a real person, a real problem, a real conversation. Before any code, we sit with hotel staff, with home users, with the people who'll use what we build.",
     subSteps: [
-      'Cognitive architecture mapping',
-      'Stakeholder alignment workshops',
-      'Data funnel and ingestion planning'
+      'On-site interviews and shadowing',
+      'Problem decomposition before solutioning',
+      'Hard "no" on building for personas we have not met',
     ],
-    note: 'Methodology Note: We refuse to write a single line of code until the behavioral objective is mathematically clear.',
+    note: 'If we cannot describe the user in one sentence and their problem in another, we are not ready to build.',
     gradient: 'from-mint/10 via-mint/5 to-transparent',
     pattern: 'radial-gradient(circle at 30% 40%, rgba(175,208,204,0.12) 0%, transparent 60%), radial-gradient(circle at 70% 80%, rgba(175,208,204,0.08) 0%, transparent 50%)',
   },
-  { 
-    number: '02', 
-    title: 'Phase II: Architecture', 
-    description: 'Rapid prototyping and systems thinking translate insights into tangible intelligence graphs.',
+  {
+    number: '02',
+    title: 'Phase II: Architect',
+    description: 'We design for production from day one. Privacy-first by default. Local-first where the hardware allows. Cloud only where it earns its place.',
     subSteps: [
-      'Schema design & immutable ledgers',
-      'Zero-knowledge compliance audits',
-      'Figma structural wireframing'
+      'Cost and latency budgets set before code',
+      'Privacy and data flow diagrams reviewed',
+      'Hardware and infra choices justified in writing',
     ],
-    note: 'Methodology Note: Architecture must balance sheer compute scale with instantaneous retrieval latency.',
+    note: 'Architecture decisions get documented. Future-us deserves to know why past-us made the call.',
     gradient: 'from-transparent via-mint/8 to-mint/12',
     pattern: 'linear-gradient(135deg, rgba(175,208,204,0.06) 25%, transparent 25%, transparent 50%, rgba(175,208,204,0.06) 50%, rgba(175,208,204,0.06) 75%, transparent 75%)',
   },
-  { 
-    number: '03', 
-    title: 'Phase III: Execution', 
-    description: 'Engineering rigour and AI-first thinking produce robust, scalable front-end and back-end integration.',
+  {
+    number: '03',
+    title: 'Phase III: Ship',
+    description: 'We ship to real users early. Butler AI was in a real hotel before we built half its features. The user is the spec.',
     subSteps: [
-      'Turbopack edge compiling',
-      'Contextual indexing model training',
-      'Framer Motion UI choreography'
+      'Pilot deployments before polish',
+      'Production telemetry from day one',
+      'Bug-fixes and shipping take priority over new features',
     ],
-    note: 'Methodology Note: The interface is not just a skin—it is the literal embodiment of the intelligence.',
+    note: "A product not in someone's hands is not a product. It is a slide deck.",
     gradient: 'from-mint/8 via-transparent to-mint/6',
     pattern: 'linear-gradient(45deg, rgba(175,208,204,0.08) 0%, transparent 40%), radial-gradient(ellipse at 80% 20%, rgba(175,208,204,0.1) 0%, transparent 70%)',
   },
-  { 
-    number: '04', 
-    title: 'Phase IV: Reflection', 
-    description: 'Continuous feedback loops and semantic logging drive ongoing systemic refinement.',
+  {
+    number: '04',
+    title: 'Phase IV: Iterate',
+    description: "Software rots unless it learns. Every release is informed by what last week's release taught us — from production logs, from user calls, from the team's own dogfooding.",
     subSteps: [
-      'A/B variable deployment',
-      'Synthetic stress testing',
-      'Decentralized legacy synthesis'
+      'Weekly review of production data',
+      'User calls every cycle, not just at launch',
+      'Roadmap reshaped by what we learn, not by what we promised',
     ],
-    note: 'Methodology Note: Software rots unless it learns. True intelligence is inherently iterative.',
+    note: 'Plans are guesses. Production is the truth. We update our beliefs.',
     gradient: 'from-transparent via-mint/6 to-mint/10',
     pattern: 'radial-gradient(circle at 50% 50%, rgba(175,208,204,0.15) 0%, transparent 50%), radial-gradient(circle at 20% 70%, rgba(175,208,204,0.06) 0%, transparent 60%)',
   },
@@ -103,9 +103,9 @@ export default function ExpandedProcessSection() {
           
           {/* Left Side: Pinned Navigation (4 cols) */}
           <div ref={stepsRef} className="lg:col-span-4 pb-12 w-full lg:sticky top-24">
-            <SectionLabel>The Execution</SectionLabel>
+            <SectionLabel>The Loop</SectionLabel>
             <h2 className="font-heading text-3xl md:text-5xl font-bold text-soyl-white mb-12 tracking-tight mt-2">
-              Deep Work <br /> Protocol
+              Build → Ship → Learn
             </h2>
             
             <div className="space-y-6 hidden lg:block">
