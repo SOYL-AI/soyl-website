@@ -38,8 +38,14 @@ const STEPS = [
   },
 ]
 
-// Temporary placeholder images
-const MARQUEE_IMAGES = Array.from({ length: 6 }).map((_, i) => `/images/placeholder-${i}.jpg`)
+const MARQUEE_IMAGES = [
+  '/images/marquee/01-bengaluru-rooftop.png',
+  '/images/marquee/02-whiteboard.png',
+  '/images/marquee/03-jetson-board.png',
+  '/images/marquee/04-desk-laptop.png',
+  '/images/marquee/05-voice-setup.png',
+  '/images/marquee/06-monsoon-window.png',
+]
 
 export default function HowWeWorkSection() {
   const containerRef = useRef<HTMLDivElement>(null)
