@@ -2,6 +2,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { CheckCircle2 } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 
 const PRACTICES = [
   "FastAPI + LangGraph for multi-agent orchestration",
@@ -16,7 +17,8 @@ export default function ToolsPracticesSection() {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-obsidian border-b border-mint/5 py-24 md:py-32 relative overflow-hidden">
+    <section className="bg-atmosphere-warm border-b border-mint/5 py-24 md:py-32 relative overflow-hidden">
+      <EditorialMarker number="04" label="STACK" position="top-right" />
       {/* Subtle stylistic bg artifact */}
       <div className="absolute -right-[15%] top-1/4 w-[40vw] h-[40vw] bg-mint/5 rounded-full blur-[100px] pointer-events-none mix-blend-screen opacity-20" />
 

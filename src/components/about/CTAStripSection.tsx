@@ -2,8 +2,9 @@ import Button from '@/components/ui/Button'
 
 export default function CTAStripSection() {
   return (
-    <section className="bg-elevated py-20 border-t border-mint/5">
+    <section className="bg-atmosphere-deep py-20 border-t border-mint/5">
       <div className="max-w-content mx-auto px-6 lg:px-16 text-center">
+        <span className="font-caption text-xs tracking-[0.3em] text-mint/40 uppercase block mb-4">— Get in touch —</span>
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-soyl-white mb-6">
           Want to talk?
         </h2>

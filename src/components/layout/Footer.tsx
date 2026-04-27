@@ -44,7 +44,15 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-mint/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="flex items-center justify-between border-t border-mint/10 pt-6 mb-4 font-caption text-[10px] tracking-[0.25em] uppercase text-graphite/50">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-mint pulse-mint" />
+            <span>Pilot live · Bengaluru</span>
+          </div>
+          <div className="hidden md:block">v0.4.0 · Shipping weekly</div>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-graphite text-xs">© {new Date().getFullYear()} SOYL AI Private Limited. All rights reserved.</p>
           <p className="text-graphite text-xs">Built with purpose.</p>
         </div>

@@ -9,7 +9,7 @@ export default function ContactHeroSection() {
   const initialState = { opacity: prefersReduced ? 1 : 0, y: initialY }
 
   return (
-    <section className="bg-obsidian pt-24 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
+    <section className="bg-atmosphere-deep pt-24 md:pt-32 pb-16 md:pb-24 relative overflow-hidden">
       
       <div className="absolute top-0 right-1/4 w-[60vw] h-[60vw] bg-mint/5 rounded-full blur-[150px] -translate-y-1/2 pointer-events-none" />
 

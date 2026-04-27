@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 import { staggerContainer, fadeInUp } from '@/lib/motion'
 import SectionLabel from '@/components/ui/SectionLabel'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 
 // Define the geometric structural mapping for the Bento grid.
 const BENTO_BLOCKS = [
@@ -115,7 +116,8 @@ export default function CultureGallerySection() {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-obsidian border-b border-mint/5 py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-obsidian border-b border-mint/5 py-24 md:py-32 overflow-hidden">
+      <EditorialMarker number="03" label="ATMOSPHERE" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
         
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">

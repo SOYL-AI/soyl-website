@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import SectionLabel from '@/components/ui/SectionLabel'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -97,7 +98,8 @@ export default function ExpandedProcessSection() {
   }, { scope: containerRef })
 
   return (
-    <section className="bg-elevated py-24 md:py-32 border-y border-mint/5 overflow-hidden">
+    <section className="relative bg-atmosphere-warm py-24 md:py-32 border-y border-mint/5 overflow-hidden">
+      <EditorialMarker number="01" label="LOOP" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
         <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start relative">
           

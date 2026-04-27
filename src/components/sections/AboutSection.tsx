@@ -3,6 +3,7 @@ import { Link } from 'next-view-transitions'
 import { motion, useReducedMotion } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
 import AnimatedCounter from '@/components/ui/AnimatedCounter'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 import { slideInLeft, slideInRight } from '@/lib/motion'
 
 const STATS = [
@@ -16,7 +17,8 @@ export default function AboutSection() {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-elevated py-16 md:py-24 border-y border-mint/5">
+    <section className="relative bg-atmosphere-warm section-scanline py-16 md:py-24 border-y border-mint/5">
+      <EditorialMarker number="01" label="STORY" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left — Text */}

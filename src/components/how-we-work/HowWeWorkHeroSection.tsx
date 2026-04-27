@@ -9,7 +9,7 @@ export default function HowWeWorkHeroSection() {
   const initialState = { opacity: prefersReduced ? 1 : 0, y: initialY }
 
   return (
-    <section className="bg-obsidian pt-48 pb-32 relative min-h-[60vh] flex flex-col justify-center overflow-hidden">
+    <section className="bg-atmosphere-deep pt-48 pb-32 relative min-h-[60vh] flex flex-col justify-center overflow-hidden">
       
       {/* CSS-Only Ambient Looping Background */}
       <div className="absolute inset-0 pointer-events-none mix-blend-screen opacity-30">

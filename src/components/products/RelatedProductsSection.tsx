@@ -5,13 +5,15 @@ import { ArrowUpRight } from 'lucide-react'
 import { PRODUCTS } from '@/lib/products'
 import { staggerContainer, fadeInUp } from '@/lib/motion'
 import { cn } from '@/lib/utils'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 
 export default function RelatedProductsSection({ currentSlug }: { currentSlug: string }) {
   const prefersReduced = useReducedMotion()
   const related = PRODUCTS.filter(p => p.slug !== currentSlug)
 
   return (
-    <section className="bg-obsidian border-t border-mint/5 py-24 md:py-32">
+    <section className="relative bg-obsidian border-t border-mint/5 py-24 md:py-32">
+      <EditorialMarker number="04" label="SUITE" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
         <div className="mb-12 flex justify-between items-end border-b border-mint/10 pb-6">
           <h2 className="font-heading font-bold text-2xl md:text-3xl text-soyl-white">

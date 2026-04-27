@@ -1,7 +1,7 @@
 'use client'
 import { Link } from 'next-view-transitions'
-import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 import { motion, useReducedMotion } from 'framer-motion'
 import StaggerContainer from '@/components/motion/StaggerContainer'
 import FadeInUp from '@/components/motion/FadeInUp'
@@ -10,10 +10,17 @@ import { PRODUCTS } from '@/lib/products'
 export default function ProductsSection() {
   const prefersReduced = useReducedMotion()
   return (
-    <section className="bg-obsidian py-16 md:py-24">
+    <section className="relative bg-atmosphere-cool section-scanline py-16 md:py-24">
+      <EditorialMarker number="02" label="PRODUCTS" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16">
         <StaggerContainer>
-          <FadeInUp><SectionLabel>OUR PRODUCTS</SectionLabel></FadeInUp>
+          <FadeInUp>
+            <div className="flex items-center gap-4 mb-3">
+              <span className="font-caption text-xs tracking-[0.3em] text-mint/60">02</span>
+              <span className="w-8 h-px bg-mint/30" />
+              <span className="font-caption text-xs tracking-[0.3em] text-mint uppercase">Our Products</span>
+            </div>
+          </FadeInUp>
           <FadeInUp>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-soyl-white mb-4">
               Three products. One mission.

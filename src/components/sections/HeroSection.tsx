@@ -2,6 +2,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'next-view-transitions'
 import dynamic from 'next/dynamic'
+import LiveStatusBadge from '@/components/ui/LiveStatusBadge'
 
 // Strictly client-side render the WebGL canvas to prevent React-Three-Fiber hydration mismatches
 const HeroVisual = dynamic(() => import('./HeroVisual'), { 
@@ -19,11 +20,14 @@ export default function HeroSection() {
   const initialState = { opacity: prefersReduced ? 1 : 0, y: initialY }
 
   return (
-    <section className="min-h-screen bg-obsidian flex items-center pt-16 hero-grid-overlay relative">
+    <section className="min-h-screen bg-atmosphere-deep flex items-center pt-16 hero-grid-overlay relative">
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-stretch">
           {/* Left — Text */}
           <div className="lg:col-span-3 flex flex-col justify-center py-8 lg:py-16">
+            <motion.div initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.05, duration: 0.5 }} className="mb-4">
+              <LiveStatusBadge label="Pilot live · 30 rooms" />
+            </motion.div>
             <motion.p initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.1, duration: 0.5 }} className="text-mint text-xs tracking-[0.22em] uppercase mb-4 flex items-center gap-3">
               DEEP-TECH AI · BUILT IN INDIA · BENGALURU
               <span className="w-10 h-px bg-mint opacity-40 inline-block" />
@@ -62,8 +66,11 @@ export default function HeroSection() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="flex justify-center mt-12">
-          <span className="text-graphite/40 text-2xl animate-bounce-y">↓</span>
+        <div className="flex flex-col items-center gap-2 mt-12">
+          <span className="font-caption text-[10px] tracking-[0.3em] text-graphite/40 uppercase">Scroll</span>
+          <div className="relative w-px h-10 bg-mint/10 overflow-hidden">
+            <span className="absolute top-0 left-0 right-0 h-3 bg-gradient-to-b from-mint/60 to-transparent animate-scroll-trail" />
+          </div>
         </div>
       </div>
     </section>

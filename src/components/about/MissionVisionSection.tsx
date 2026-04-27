@@ -2,12 +2,14 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { slideInLeft, slideInRight } from '@/lib/motion'
 import SectionLabel from '@/components/ui/SectionLabel'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 
 export default function MissionVisionSection() {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-obsidian py-20 md:py-32 overflow-hidden">
+    <section className="relative bg-atmosphere-warm py-20 md:py-32 overflow-hidden">
+      <EditorialMarker number="01" label="MISSION" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           
