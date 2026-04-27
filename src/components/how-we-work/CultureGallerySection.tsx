@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 import { staggerContainer, fadeInUp } from '@/lib/motion'
 import SectionLabel from '@/components/ui/SectionLabel'
@@ -8,13 +9,27 @@ const BENTO_BLOCKS = [
   {
     id: 1,
     size: 'col-span-1 md:col-span-2 row-span-2',
-    style: 'bg-gradient-to-br from-mint/10 to-transparent',
+    style: '',
     content: (
-      <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
-        <h3 className="font-heading font-bold text-3xl text-soyl-white mb-2 relative z-10">Bengaluru HQ</h3>
-        <p className="text-graphite text-sm max-w-xs relative z-10">A small team, a shared room, no cubicles. Where most of our shipping happens.</p>
+      <>
+        <Image
+          src="/images/culture/bengaluru-hq.png"
+          alt=""
+          fill
+          sizes="(min-width: 768px) 50vw, 100vw"
+          className="object-cover"
+          priority
+        />
+        {/* Dark gradient for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-obsidian/20" />
+        {/* Mint glow accent — preserve existing */}
         <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-mint/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-      </div>
+        {/* Text content — preserve existing copy */}
+        <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
+          <h3 className="font-heading font-bold text-3xl text-soyl-white mb-2 relative z-10">Bengaluru HQ</h3>
+          <p className="text-graphite text-sm max-w-xs relative z-10">A small team, a shared room, no cubicles. Where most of our shipping happens.</p>
+        </div>
+      </>
     )
   },
   {
@@ -43,12 +58,22 @@ const BENTO_BLOCKS = [
   {
     id: 4,
     size: 'col-span-1 row-span-1',
-    style: 'bg-gradient-to-tl from-indigo-500/10 to-transparent',
+    style: '',
     content: (
-      <div className="absolute inset-0 flex flex-col justify-end p-6">
-        <h3 className="font-heading font-medium text-lg text-soyl-white">Node Networks</h3>
-        <p className="text-graphite text-xs mt-1">Cross-team daily syncs.</p>
-      </div>
+      <>
+        <Image
+          src="/images/culture/node-networks.png"
+          alt=""
+          fill
+          sizes="(min-width: 768px) 25vw, 100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-obsidian/10" />
+        <div className="absolute inset-0 flex flex-col justify-end p-6">
+          <h3 className="font-heading font-medium text-lg text-soyl-white">Node Networks</h3>
+          <p className="text-graphite text-xs mt-1">Cross-team daily syncs.</p>
+        </div>
+      </>
     )
   },
   {
@@ -66,12 +91,22 @@ const BENTO_BLOCKS = [
   {
     id: 6,
     size: 'col-span-1 md:col-span-2 row-span-1',
-    style: 'bg-mint/[0.05]',
+    style: '',
     content: (
-      <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-10">
-        <h3 className="font-heading font-bold text-2xl text-soyl-white mb-2">Hardware Lab</h3>
-        <p className="text-graphite text-sm max-w-xs">Where Jetson Orin nodes get prototyped, benched, and sometimes broken.</p>
-      </div>
+      <>
+        <Image
+          src="/images/culture/hardware-lab.png"
+          alt=""
+          fill
+          sizes="(min-width: 768px) 50vw, 100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/65 to-obsidian/15" />
+        <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-10">
+          <h3 className="font-heading font-bold text-2xl text-soyl-white mb-2 relative z-10">Hardware Lab</h3>
+          <p className="text-graphite text-sm max-w-xs relative z-10">Where Jetson Orin nodes get prototyped, benched, and sometimes broken.</p>
+        </div>
+      </>
     )
   }
 ]
