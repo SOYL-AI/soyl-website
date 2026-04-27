@@ -6,7 +6,7 @@ export default function ContactInfoSection() {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-obsidian border-t border-mint/5 py-16 md:py-24 relative z-10 w-full">
+    <section className="bg-atmosphere-warm border-t border-mint/5 py-16 md:py-24 relative z-10 w-full">
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
           

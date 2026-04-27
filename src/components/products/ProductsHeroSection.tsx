@@ -9,7 +9,7 @@ export default function ProductsHeroSection() {
   const initialState = { opacity: prefersReduced ? 1 : 0, y: initialY }
 
   return (
-    <section className="bg-obsidian pt-40 pb-20 relative">
+    <section className="bg-atmosphere-deep pt-40 pb-20 relative">
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full text-center flex flex-col items-center">
         <motion.div initial={initialState} animate={animateState} transition={{ duration: 0.5 }}>
           <SectionLabel className="justify-center mb-6">Our Solutions</SectionLabel>

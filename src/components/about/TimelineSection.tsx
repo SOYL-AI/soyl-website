@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import SectionLabel from '@/components/ui/SectionLabel'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -73,7 +74,8 @@ export default function TimelineSection() {
   }, { scope: containerRef })
 
   return (
-    <section className="bg-obsidian py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-atmosphere-cool py-24 md:py-32 overflow-hidden">
+      <EditorialMarker number="02" label="TIMELINE" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16" ref={containerRef}>
         <div className="mb-24 text-center flex flex-col items-center">
           <SectionLabel>Our Story</SectionLabel>

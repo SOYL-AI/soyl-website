@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ImageMarquee from '@/components/ui/ImageMarquee'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -81,7 +82,8 @@ export default function HowWeWorkSection() {
   }, { scope: containerRef })
 
   return (
-    <section className="bg-elevated py-16 md:py-24 border-y border-mint/5">
+    <section className="relative bg-atmosphere-warm section-scanline py-16 md:py-24 border-y border-mint/5">
+      <EditorialMarker number="03" label="PROCESS" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16">
         <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start relative">
           {/* Left — Step list */}

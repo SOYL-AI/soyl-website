@@ -1,6 +1,7 @@
 'use client'
 import { motion, useReducedMotion } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 import StaggerContainer from '@/components/motion/StaggerContainer'
 import FadeInUp from '@/components/motion/FadeInUp'
 
@@ -14,7 +15,8 @@ export default function ValuesSection() {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-obsidian border-y border-mint/5 py-24">
+    <section className="relative bg-obsidian border-y border-mint/5 py-24">
+      <EditorialMarker number="03" label="VALUES" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16">
         <div className="text-center mb-16 flex flex-col items-center">
           <SectionLabel>Core Values</SectionLabel>

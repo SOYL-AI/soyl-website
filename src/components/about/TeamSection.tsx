@@ -2,6 +2,7 @@
 import { useState, type FocusEvent, type PointerEvent } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import SectionLabel from '@/components/ui/SectionLabel'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 import FadeInUp from '@/components/motion/FadeInUp'
 import StaggerContainer from '@/components/motion/StaggerContainer'
 import { cn } from '@/lib/utils'
@@ -111,10 +112,14 @@ export default function TeamSection() {
   const transitionDuration = prefersReduced ? 0 : 0.25
 
   return (
-    <section className="bg-obsidian py-24">
+    <section className="relative bg-atmosphere-warm py-24">
+      <EditorialMarker number="04" label="TEAM" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16">
         <div className="mb-16">
-          <SectionLabel>Our Team</SectionLabel>
+          <div className="flex items-center gap-4 mb-3">
+            <SectionLabel>Our Team</SectionLabel>
+            <span className="font-caption text-[10px] tracking-[0.25em] text-graphite/60">— 2 FOUNDERS · 18 BUILDERS</span>
+          </div>
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-soyl-white mt-2 mb-4">
             Two founders. One vision. A team that ships.
           </h2>

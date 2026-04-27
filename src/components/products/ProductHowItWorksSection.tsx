@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import SectionLabel from '@/components/ui/SectionLabel'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 import { type Product } from '@/lib/products'
 
 if (typeof window !== 'undefined') {
@@ -61,7 +62,8 @@ export default function ProductHowItWorksSection({ product }: { product: Product
   }, { scope: containerRef })
 
   return (
-    <section className="bg-obsidian border-b border-mint/5 py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-atmosphere-cool border-b border-mint/5 py-24 md:py-32 overflow-hidden">
+      <EditorialMarker number="03" label="MECHANISM" position="top-right" />
       <div className="max-w-3xl mx-auto px-6 lg:px-16 w-full" ref={containerRef}>
         <div className="mb-20 text-center flex flex-col items-center">
           <SectionLabel className="justify-center">Mechanism</SectionLabel>

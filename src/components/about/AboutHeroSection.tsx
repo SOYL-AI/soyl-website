@@ -10,7 +10,7 @@ export default function AboutHeroSection() {
   const initialState = { opacity: prefersReduced ? 1 : 0, y: initialY }
 
   return (
-    <section className="bg-obsidian pt-32 pb-16 relative overflow-hidden">
+    <section className="bg-atmosphere-deep pt-32 pb-16 relative overflow-hidden">
       {/* Volumetric Ethereal Background Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none mix-blend-screen">
         <motion.div

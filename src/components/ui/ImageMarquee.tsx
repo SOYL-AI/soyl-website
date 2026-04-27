@@ -23,7 +23,7 @@ export default function ImageMarquee({ images }: { images: string[] }) {
             {/* Subtle dark gradient overlay for visual continuity */}
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian/40 via-transparent to-obsidian/10 pointer-events-none" />
             {/* Mint corner accent — keep the existing one */}
-            <div className="absolute top-3 left-3 w-1.5 h-1.5 rounded-full bg-mint/60" />
+            <div className="absolute top-3 left-3 w-1.5 h-1.5 rounded-full bg-mint pulse-mint" />
           </div>
         ))}
       </div>

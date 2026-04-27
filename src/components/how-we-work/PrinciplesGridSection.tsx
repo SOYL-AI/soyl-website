@@ -2,6 +2,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Search, RotateCw, Target, Hammer } from 'lucide-react'
 import SectionLabel from '@/components/ui/SectionLabel'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 import { staggerContainer, fadeInUp } from '@/lib/motion'
 
 const PRINCIPLES = [
@@ -15,7 +16,8 @@ export default function PrinciplesGridSection() {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-obsidian border-b border-mint/5 py-24 md:py-32">
+    <section className="relative bg-atmosphere-cool border-b border-mint/5 py-24 md:py-32">
+      <EditorialMarker number="02" label="PRINCIPLES" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
         <div className="mb-16 text-center flex flex-col items-center">
           <SectionLabel>Core Ideology</SectionLabel>

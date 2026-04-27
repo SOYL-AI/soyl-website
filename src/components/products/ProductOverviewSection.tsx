@@ -1,12 +1,14 @@
 'use client'
 import { motion, useReducedMotion } from 'framer-motion'
 import { type Product } from '@/lib/products'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 
 export default function ProductOverviewSection({ product }: { product: Product }) {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-obsidian border-b border-mint/5 py-24 md:py-32">
+    <section className="relative bg-atmosphere-warm border-b border-mint/5 py-24 md:py-32">
+       <EditorialMarker number="01" label="OVERVIEW" position="top-right" />
        <div className="max-w-4xl mx-auto px-6 lg:px-16 w-full text-center">
           <motion.h2 
             initial={{ opacity: prefersReduced ? 1 : 0, y: prefersReduced ? 0 : 24 }}

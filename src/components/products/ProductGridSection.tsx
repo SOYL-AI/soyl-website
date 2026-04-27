@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import { PRODUCTS, type Product } from '@/lib/products'
 import { ICON_MAP } from '@/lib/icons'
 import { staggerContainer, fadeInUp } from '@/lib/motion'
+import EditorialMarker from '@/components/ui/EditorialMarker'
 
 const ProductCard = ({ product }: { product: Product }) => {
   const prefersReduced = useReducedMotion()
@@ -72,7 +73,8 @@ export default function ProductGridSection() {
   const prefersReduced = useReducedMotion()
 
   return (
-    <section className="bg-obsidian pt-24 md:pt-32 pb-32 relative z-10">
+    <section className="bg-atmosphere-cool pt-24 md:pt-32 pb-32 relative z-10">
+      <EditorialMarker number="01" label="SUITE" position="top-right" />
       <div className="max-w-content mx-auto px-6 lg:px-16 w-full">
         <motion.div
           variants={prefersReduced ? undefined : staggerContainer}

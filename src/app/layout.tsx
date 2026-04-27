@@ -14,9 +14,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning>
-        <body>
+        <body className="editorial-rules">
+          <div className="ambient-mesh" aria-hidden="true" />
+          <div className="ambient-grain" aria-hidden="true" />
           <Navbar />
-          <main>{children}</main>
+          <main className="relative z-10">{children}</main>
           <Footer />
         </body>
       </html>

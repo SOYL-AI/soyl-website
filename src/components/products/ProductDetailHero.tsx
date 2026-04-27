@@ -10,7 +10,7 @@ export default function ProductDetailHero({ product }: { product: Product }) {
   const initialState = { opacity: prefersReduced ? 1 : 0, y: initialY }
 
   return (
-    <section className="bg-obsidian pt-32 pb-24 relative overflow-hidden">
+    <section className="bg-atmosphere-deep pt-32 pb-24 relative overflow-hidden">
       {/* Background soft glow representing the product persona */}
       <div className="absolute inset-0 pointer-events-none mix-blend-screen opacity-10">
         <motion.div
