@@ -39,8 +39,8 @@ export default function HeroSection() {
               Every life is a story. Every story deserves intelligence that listens. SOYL AI builds voice AI for hospitality, private intelligence for the home, and apps for the small moments that shape a day — all engineered in Bengaluru, all built to ship.
             </motion.p>
             <motion.div initial={initialState} animate={animateState} transition={{ delay: prefersReduced ? 0 : 0.85, duration: 0.5 }} className="flex flex-wrap gap-4">
-              <Link href="/speak" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-mint text-mint hover:bg-mint hover:text-obsidian transition-all duration-200">
-                Speak with Butler →
+              <Link href="/products/butler-ai#try-butler" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-mint text-mint hover:bg-mint hover:text-obsidian transition-all duration-200">
+                Try Butler →
               </Link>
               <Link href="/products" className="inline-flex items-center gap-2 px-6 py-3 rounded text-sm tracking-wide border border-graphite text-soyl-white hover:border-mint hover:text-mint transition-all duration-200">
                 Explore Products →
