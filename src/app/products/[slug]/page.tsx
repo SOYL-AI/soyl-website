@@ -6,6 +6,7 @@ import ProductFeaturesSection from '@/components/products/ProductFeaturesSection
 import ProductHowItWorksSection from '@/components/products/ProductHowItWorksSection'
 import RelatedProductsSection from '@/components/products/RelatedProductsSection'
 import CTAStripSection from '@/components/about/CTAStripSection'
+import ButlerDemoSection from '@/components/products/butler-demo/ButlerDemoSection'
 
 export async function generateStaticParams() {
   return PRODUCTS.map((product) => ({
@@ -32,6 +33,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       <ProductOverviewSection product={product} />
       
       <ProductFeaturesSection product={product} />
+      {product.slug === 'butler-ai' && <ButlerDemoSection />}
       <ProductHowItWorksSection product={product} />
       
       <RelatedProductsSection currentSlug={product.slug} />

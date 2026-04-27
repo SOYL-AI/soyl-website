@@ -95,6 +95,25 @@ To maintain the integrity and performance of the codebase, please keep the follo
 - `npm run start` — Starts the Next.js production server.
 - `npm run lint` — Runs ESLint to catch code issues.
 
+## Live demo (Butler AI)
+
+The `/products/butler-ai` page embeds a live voice + text demo of Butler AI. It proxies
+to the agent backend at `AGENT_API_URL` and rate-limits via Upstash Redis.
+
+**Backend hosting:** the FastAPI agent (Asterisk + LangGraph + RAG) is hosted on Railway.
+Set `AGENT_API_URL` to the Railway public URL.
+
+**Rate limits:**
+- Text: 15 requests / hour / IP
+- Audio: 5 requests / hour / IP
+- Session: 20 messages total (24h cookie window)
+
+When a visitor hits any limit, the demo gracefully degrades to a "get in touch" CTA
+instead of failing. In dev, if `UPSTASH_REDIS_REST_URL` is unset, the limiters fall
+back to a no-op so the local server works without Upstash credentials.
+
+See `.env.example` for required environment variables.
+
 ## 📚 Documentation
 
 For a deep dive into the specific phases of development, design tokens, typography scale, and CMS schema structures, please refer to the comprehensive [Implementation Plan](docs/PLAN.md).
