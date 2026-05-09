@@ -9,53 +9,52 @@ import { staggerContainer, fadeInUp } from '@/lib/motion'
 const ProductCard = ({ product }: { product: Product }) => {
   const prefersReduced = useReducedMotion()
 
+  // Choose a main icon for the visual anchor orb based on the product
+  let MainIcon = ICON_MAP['Zap']
+  if (product.slug === 'butler-ai') MainIcon = ICON_MAP['Globe']
+  if (product.slug === 'ai-dex') MainIcon = ICON_MAP['Lock']
+  if (product.slug === 'lifestyle-apps') MainIcon = ICON_MAP['Heart']
+
   return (
     <motion.div
       variants={prefersReduced ? {} : fadeInUp}
-      className="group flex flex-col justify-between bg-mint/[0.02] border border-mint/10 rounded-2xl p-8 hover:bg-mint/[0.05] hover:border-mint/30 transition-all duration-500 ease-out h-full"
+      className="group relative flex flex-col bg-mint/[0.02] border border-mint/10 rounded-[2rem] p-8 lg:p-12 hover:bg-gradient-to-br hover:from-mint/[0.05] hover:to-transparent hover:border-mint/30 transition-all duration-700 ease-out overflow-hidden lg:h-[720px]"
     >
-      <div>
-        <div className="mb-6">
+      {/* Top Content (Title, Tagline) */}
+      <div className="relative z-10 mb-8 lg:mb-auto">
+        <div>
           <h3 className="font-heading font-bold text-3xl text-soyl-white mb-2">{product.name}</h3>
           <p className="font-mono text-mint font-medium text-xs tracking-[0.2em] uppercase">{product.tagline}</p>
         </div>
-
-        <p className="text-graphite leading-relaxed mb-8">
-          {product.longDescription}
-        </p>
-
-        {/* Features sub-list */}
-        <div className="space-y-6 mb-10">
-          {product.features.map((feature, i) => {
-            const Icon = ICON_MAP[feature.icon] ?? ICON_MAP['Zap']
-            return (
-              <div key={i} className="flex items-start gap-4">
-                <div className={[
-                  'mt-1 w-10 h-10 rounded-lg bg-mint/10 border border-mint/20 flex items-center justify-center shrink-0 text-mint transition-transform duration-500',
-                  prefersReduced ? '' : 'group-hover:scale-110',
-                ].join(' ')}>
-                  <Icon size={18} />
-                </div>
-                <div>
-                  <h4 className="text-soyl-white text-sm font-semibold mb-1">{feature.title}</h4>
-                  <p className="text-graphite text-xs leading-relaxed">{feature.description}</p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
       </div>
 
-      {/* Footer: Tags and CTA */}
-      <div className="mt-auto">
-        <div className="flex flex-wrap gap-2 mb-10">
-          {product.tags.map((tag, i) => (
-            <span key={i} className="text-[11px] font-mono tracking-wider text-mint/70 bg-mint/5 border border-mint/10 rounded px-2 py-1">
-              {tag}
-            </span>
-          ))}
-        </div>
+      {/* Center Visual Anchor (Resting State - Desktop Only) */}
+      <div className="hidden lg:flex absolute inset-0 items-center justify-center pointer-events-none transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0">
+         <div className="w-64 h-64 rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-mint/20 via-mint/5 to-transparent flex items-center justify-center backdrop-blur-md border border-mint/10 shadow-[0_0_80px_-20px_rgba(255,255,255,0.1)]">
+            <MainIcon size={64} className="text-mint/80 drop-shadow-lg" />
+         </div>
+      </div>
 
+      {/* Feature List (Mobile: Normal flow. Desktop: Hover State) */}
+      <div className="relative lg:absolute lg:left-12 lg:right-12 lg:inset-y-0 lg:flex lg:flex-col lg:justify-center space-y-6 lg:opacity-0 lg:translate-y-8 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 transition-all duration-500 ease-out z-10 mb-10 lg:mb-0">
+        {product.features.map((feature, i) => {
+          const Icon = ICON_MAP[feature.icon] ?? ICON_MAP['Zap']
+          return (
+            <div key={i} className="flex items-start gap-4">
+              <div className="mt-1 w-10 h-10 rounded-lg bg-mint/10 border border-mint/20 flex items-center justify-center shrink-0 text-mint">
+                <Icon size={18} />
+              </div>
+              <div>
+                <h4 className="text-soyl-white text-sm font-semibold mb-1">{feature.title}</h4>
+                <p className="text-graphite text-xs leading-relaxed">{feature.description}</p>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Footer: CTA */}
+      <div className="relative z-10 mt-auto pt-8">
         <Link
           href={`/products/${product.slug}`}
           className="inline-flex items-center gap-2 text-soyl-white font-medium hover:text-mint transition-colors duration-300 w-full justify-between pb-4 border-b border-mint/20 group-hover:border-mint"
