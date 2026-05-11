@@ -12,84 +12,33 @@ export interface Blog {
 export interface Paper {
   slug: string
   title: string
+  subtitle?: string
   authors: string[]
   year: number
+  date: string
   abstract: string
   tags: string[]
+  pdfUrl?: string
+  pages?: number
 }
 
-export const MOCK_BLOGS: Blog[] = [
-  {
-    slug: 'cognitive-indexing-at-scale',
-    title: 'Cognitive Indexing at Scale: Building the Engine',
-    author: 'Ariel Chen',
-    date: '2026-03-12',
-    readTime: 8,
-    excerpt: 'An internal look at how SOYL Echo processes and structures multi-modal inputs with near-zero latency, enabling real-time experiential databases.',
-    tags: ['Architecture', 'Engineering'],
-    image: '/images/hero-globe.png' // Utilizing existing asset as placeholder
-  },
-  {
-    slug: 'designing-empathy-in-ai',
-    title: 'Designing Empathy: The Philosophy of Genesis',
-    author: 'Marcus Vance',
-    date: '2025-11-20',
-    readTime: 6,
-    excerpt: 'Standard LLMs feel transactional. Genesis was fundamentally designed to feel relational. Here is the UX psychology driving that bridge.',
-    tags: ['Design', 'Philosophy'],
-    image: '/images/about-nodes.png' 
-  },
-  {
-    slug: 'the-decentralized-vault',
-    title: 'Zero-Knowledge and the Decentralized Ledger',
-    author: 'Dr. Sarah Lin',
-    date: '2025-08-04',
-    readTime: 12,
-    excerpt: 'Our commitment to privacy. We explore the cryptographic protocols protecting your legacy data from edge to centralized ingestion.',
-    tags: ['Privacy', 'Cryptography']
-  },
-  {
-    slug: 'memory-over-time-gsap',
-    title: 'Animating Memory: Why We Chose GSAP',
-    author: 'Elias Thorne',
-    date: '2025-02-14',
-    readTime: 5,
-    excerpt: 'The technical decisions behind our highly fluid interface, and how physics-driven animations create a stronger sense of digital permanence.',
-    tags: ['Design', 'Engineering']
-  }
-]
+// No engineering blog posts yet — the Library currently focuses on whitepapers.
+// When real posts land, add them here and the blog teaser becomes a real grid.
+export const MOCK_BLOGS: Blog[] = []
 
 export const MOCK_PAPERS: Paper[] = [
   {
-    slug: 'paper-vector-mapping-2026',
-    title: 'High-Dimensional Vector Mapping in Chronological Datasets',
-    authors: ['Ariel Chen', 'Dr. Sarah Lin'],
+    slug: 'when-easy-isnt-easy-enough',
+    title: 'When "Easy" Isn\'t Easy Enough',
+    subtitle:
+      "Lessons from a 30-Room Hotel Pilot, and What It Taught Us About India's Budget Hospitality Segment",
+    authors: ['SOYL AI Research'],
     year: 2026,
-    abstract: 'We propose a novel methodology for structuring chronological human experiential data utilizing non-linear high-dimensional vector embeddings, achieving a 40% reduction in temporal retrieval latency.',
-    tags: ['Algorithms', 'Data Structures']
+    date: 'May 2026',
+    abstract:
+      "SOYL AI was built on a single guiding principle: a property management system dramatically easier to use than the legacy tools the hospitality industry has tolerated for decades. In our first pilot — a 30-room independent hotel in India with a 3.4–3.8 Google Maps rating and average room rates of ₹1,500–₹1,800 — we received a piece of feedback that, on the surface, contradicted our entire thesis: 'The software is hard to use.' This paper unpacks that feedback and what it taught us about a specific, under-studied segment of Indian hospitality where the incumbent isn't worse software — it's a pen, a register, and a manager who has internalised both.",
+    tags: ['Hospitality', 'Hotel Pilot', 'India', 'Product Strategy'],
+    pdfUrl: '/papers/when-easy-isnt-easy-enough.pdf',
+    pages: 8,
   },
-  {
-    slug: 'paper-empathic-tuning-2025',
-    title: 'Parameterizing Empathy: Context-Aware State Tracking in Generative Agents',
-    authors: ['Marcus Vance', 'Elias Thorne'],
-    year: 2025,
-    abstract: 'An architectural breakdown of the prompt-state injection loops utilized to grant continuous generative agents a simulated sense of emotional object permanence without maintaining infinite context windows.',
-    tags: ['NLP', 'UX Research']
-  },
-  {
-    slug: 'paper-cryptographic-legacy-2024',
-    title: 'Immutable Legacy Protocols for Multi-Generational Data Vaults',
-    authors: ['Dr. Sarah Lin'],
-    year: 2024,
-    abstract: 'Outlining a robust cryptographic framework ensuring data integrity and strict delegation mechanics across timespans exceeding a century.',
-    tags: ['Cryptography', 'Blockchain']
-  },
-  {
-    slug: 'paper-turbopack-rendering-2023',
-    title: 'Edge-Rendered Data Architectures',
-    authors: ['Ariel Chen'],
-    year: 2023,
-    abstract: 'An analysis of utilizing modern build compilers alongside edge-networks to instantly serve dynamic vaults without centralized server bottlenecking.',
-    tags: ['Architecture', 'Scaling']
-  }
 ]

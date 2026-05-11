@@ -17,7 +17,7 @@ export default function LibraryHeroSection() {
         
         <div className="flex flex-col items-start text-left max-w-2xl">
           <motion.div initial={initialState} animate={animateState} transition={{ duration: 0.5 }}>
-            <SectionLabel>Knowledge Base</SectionLabel>
+            <SectionLabel>Library</SectionLabel>
           </motion.div>
           
           <motion.h1 
@@ -26,7 +26,7 @@ export default function LibraryHeroSection() {
             transition={{ delay: prefersReduced ? 0 : 0.1, duration: 0.6 }} 
             className="font-heading font-bold text-4xl md:text-6xl text-soyl-white tracking-tight mt-4"
           >
-            The Library
+            Whitepapers & research
           </motion.h1>
           
           <motion.p 
@@ -35,7 +35,7 @@ export default function LibraryHeroSection() {
             transition={{ delay: prefersReduced ? 0 : 0.2, duration: 0.5 }} 
             className="text-graphite text-lg md:text-xl leading-relaxed mt-6"
           >
-            A curated archive of our engineering blogs, philosophical treatises, and peer-reviewed research papers mapping the frontier of legacy intelligence.
+            Long-form writing from the SOYL AI engineering and pilot teams — what we&apos;re building, what we&apos;ve learned in production, and the segments we think the rest of the industry is missing.
           </motion.p>
         </div>
 
