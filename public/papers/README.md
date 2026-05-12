@@ -7,6 +7,7 @@ Drop whitepaper PDFs here. The Library section ([src/lib/mockData.ts](../../src/
 | File | Paper |
 |---|---|
 | `when-easy-isnt-easy-enough.pdf` | When "Easy" Isn't Easy Enough — May 2026 (1st pilot findings) |
+| `checking-in-to-the-ai-era.pdf` | Checking In to the AI Era — April 2026 (hospitality intelligence series) |
 
 ## Adding a new paper
 

@@ -41,4 +41,18 @@ export const MOCK_PAPERS: Paper[] = [
     pdfUrl: '/papers/when-easy-isnt-easy-enough.pdf',
     pages: 8,
   },
+  {
+    slug: 'checking-in-to-the-ai-era',
+    title: 'Checking In to the AI Era',
+    subtitle:
+      'How Artificial Intelligence Is Transforming Revenue Growth and Operational Loss Optimisation Across the Hospitality Industry',
+    authors: ['SOYL AI Research'],
+    year: 2026,
+    date: 'April 2026',
+    abstract:
+      'The hospitality industry is entering a period of irreversible structural change. After a decade of margin compression — compounded by COVID-19 and an uneven recovery — operators can no longer rely on cyclical improvement to restore profitability. AI is the first technology inflection point in modern hospitality capable of addressing volatile demand, rising labour costs, and aggressive OTA intermediation simultaneously and at scale — not as a supplementary optimisation layer, but as a structural reimagining of how hospitality businesses generate revenue, manage cost, and deliver guest experience.',
+    tags: ['Hospitality', 'AI Strategy', 'Revenue Optimisation', 'Market Analysis'],
+    pdfUrl: '/papers/checking-in-to-the-ai-era.pdf',
+    pages: 10,
+  },
 ]
