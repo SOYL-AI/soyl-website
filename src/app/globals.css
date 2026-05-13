@@ -45,17 +45,6 @@
   50%      { transform: translateY(8px); }
 }
 
-/* Landing splash keyframes — logo-spin loader. Exit fade is Framer Motion. */
-@keyframes splashEnter {
-  0%   { opacity: 0; transform: scale(0.7); }
-  100% { opacity: 1; transform: scale(1); }
-}
-/* Three full turns over the spin window. Combined with cubic-bezier(0.22,1,0.36,1)
-   easeOut on the element, the logo starts fast and decelerates to a stop. */
-@keyframes splashSpin {
-  to { transform: rotate(1080deg); }
-}
-
 /* View Transition animations */
 @keyframes fadeOut { to { opacity: 0; } }
 @keyframes fadeIn { from { opacity: 0; } }

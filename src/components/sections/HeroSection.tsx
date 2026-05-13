@@ -3,13 +3,10 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'next-view-transitions'
 import dynamic from 'next/dynamic'
 
-// Strictly client-side render the WebGL canvas to prevent React-Three-Fiber hydration mismatches
-const HeroVisual = dynamic(() => import('./HeroVisual'), { 
-  ssr: false, 
-  loading: () => (
-    <div className="w-64 h-64 md:w-96 md:h-96 rounded-full bg-mint/5 animate-pulse blur-3xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-  )
-})
+// Strictly client-side render the WebGL canvas to prevent React-Three-Fiber hydration mismatches.
+// No loading skeleton — empty space briefly while WebGL initialises is preferable
+// to a "loading"-feel pulse on first paint.
+const HeroVisual = dynamic(() => import('./HeroVisual'), { ssr: false })
 
 export default function HeroSection() {
   const prefersReduced = useReducedMotion()
