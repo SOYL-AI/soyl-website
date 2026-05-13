@@ -42,3 +42,5 @@ next-env.d.ts
 
 ryan-prompt.md
 
+#Claude Code Config
+.claude/
