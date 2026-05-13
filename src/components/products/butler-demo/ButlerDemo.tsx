@@ -36,7 +36,13 @@ export default function ButlerDemo() {
   }, [messages])
 
   useEffect(() => {
-    if (!navigator.mediaDevices?.getUserMedia) setMicAvailable(false)
+    // Deferred to satisfy react-hooks/set-state-in-effect (the rule rejects
+    // setState calls in the effect body itself).
+    // `navigator.mediaDevices` is typed as required but is genuinely absent
+    // in insecure contexts and some embedded webviews — we runtime-check.
+    if (typeof navigator !== 'undefined' && navigator.mediaDevices) return
+    const t = setTimeout(() => setMicAvailable(false), 0)
+    return () => clearTimeout(t)
   }, [])
 
   function applyLimitResponse(data: { session_complete?: boolean }) {

@@ -3,6 +3,7 @@ import { ViewTransitions } from 'next-view-transitions'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import SiteChrome from '@/components/layout/SiteChrome'
 
 export const metadata: Metadata = {
   title: { default: 'SOYL AI Private Limited', template: '%s | SOYL AI' },
@@ -24,9 +25,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning style={{ backgroundColor: '#030709' }}>
         <body style={{ backgroundColor: '#030709' }}>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <SiteChrome navbar={<Navbar />} footer={<Footer />}>
+            {children}
+          </SiteChrome>
         </body>
       </html>
     </ViewTransitions>
