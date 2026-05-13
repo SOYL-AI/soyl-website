@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import LibraryHero from '@/components/library/LibraryHero'
 import LibraryFilterShell from '@/components/library/LibraryFilterShell'
 import { sanityFetch } from '@/sanity/lib/client'
@@ -30,7 +31,16 @@ export default async function LibraryIndexPage() {
   return (
     <main className="bg-obsidian min-h-screen pt-16">
       <LibraryHero />
-      <LibraryFilterShell data={data} />
+      {/* Suspense boundary required by Next.js: LibraryFilterShell reads
+          useSearchParams() which forces a CSR bailout. Without this, the
+          page's static prerender fails. */}
+      <Suspense fallback={<FilterShellFallback />}>
+        <LibraryFilterShell data={data} />
+      </Suspense>
     </main>
   )
+}
+
+function FilterShellFallback() {
+  return <div className="h-16 border-b border-mint/8 bg-obsidian/85" aria-hidden />
 }

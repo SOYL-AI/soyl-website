@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { notFound } from 'next/navigation'
 import LibraryHero from '@/components/library/LibraryHero'
 import CategoryPage from '@/components/library/CategoryPage'
@@ -67,11 +68,16 @@ export default async function LibraryCategoryPage({ params }: PageProps) {
         title={data.category.title}
         showNewsletter={false}
       />
-      <CategoryPage
-        category={{ ...data.category, items: data.items }}
-        items={data.items}
-        allCategories={allCategories}
-      />
+      {/* CategoryPage contains CategoryPillBar which reads useSearchParams.
+          Without this Suspense boundary, the SSG prerender (via
+          generateStaticParams) fails with the CSR-bailout error. */}
+      <Suspense fallback={<div className="h-16 border-b border-mint/8 bg-obsidian/85" aria-hidden />}>
+        <CategoryPage
+          category={{ ...data.category, items: data.items }}
+          items={data.items}
+          allCategories={allCategories}
+        />
+      </Suspense>
     </main>
   )
 }
