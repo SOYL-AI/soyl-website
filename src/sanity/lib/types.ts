@@ -58,6 +58,23 @@ export interface BlogPostDoc {
   related: LibraryCard[]
 }
 
+// Careers — used by /careers and the Sanity-backed roles list.
+export type JobTeam = 'engineering' | 'go-to-market' | 'post-sales' | 'g-and-a'
+export type JobEmploymentType = 'full-time' | 'part-time' | 'contract' | 'internship'
+
+export interface JobPostingDoc {
+  _id: string
+  slug: string
+  title: string
+  team: JobTeam
+  location: string
+  employmentType: JobEmploymentType
+  applyUrl: string
+  summary?: string | null
+  featured: boolean
+  publishedAt: string
+}
+
 export interface WhitepaperDoc {
   _type: 'whitepaper'
   slug: string

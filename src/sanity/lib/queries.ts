@@ -106,6 +106,21 @@ export const LIBRARY_PREVIEW_QUERY = /* groq */ `
   }
 `
 
+export const JOBS_QUERY = /* groq */ `
+  *[_type == "jobPosting"] | order(featured desc, order asc, publishedAt desc) {
+    _id,
+    "slug": slug.current,
+    title,
+    team,
+    location,
+    employmentType,
+    applyUrl,
+    summary,
+    featured,
+    publishedAt
+  }
+`
+
 export const SITEMAP_QUERY = /* groq */ `
   {
     "blogs": *[_type == "blogPost" && defined(slug.current)]{ "slug": slug.current, "updated": coalesce(_updatedAt, publishedAt) },

@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: 'Products',      href: '/products' },
   { label: 'How We Work',   href: '/how-we-work' },
   { label: 'Library',       href: '/library' },
+  { label: 'Careers',       href: '/careers' },
 ]
 
 export default function Navbar() {

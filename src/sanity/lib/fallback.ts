@@ -7,6 +7,7 @@ import { MOCK_BLOGS, MOCK_PAPERS } from '@/lib/mockData'
 import type {
   BlogPostDoc,
   Category,
+  JobPostingDoc,
   LibraryCard,
   LibraryIndexData,
   WhitepaperDoc,
@@ -127,6 +128,87 @@ export function fallbackBlogBySlug(): BlogPostDoc | null {
   // No blog posts in mockData. Returning null exercises the not-found path,
   // which is the realistic behaviour pre-Sanity.
   return null
+}
+
+// Seed roles, used when Sanity is unconfigured or unreachable. Shape matches
+// JOBS_QUERY exactly so the same RolesSection code renders both modes.
+const FALLBACK_JOBS: JobPostingDoc[] = [
+  {
+    _id: 'fallback-job-eng-voice',
+    slug: 'voice-ai-engineer',
+    title: 'Voice AI Engineer',
+    team: 'engineering',
+    location: 'Bengaluru',
+    employmentType: 'full-time',
+    applyUrl: 'mailto:careers@soylai.com?subject=Voice%20AI%20Engineer',
+    summary: 'Ship the next chapter of Butler. Real-time speech, low-latency inference, production hardening.',
+    featured: true,
+    publishedAt: '2026-05-10T00:00:00Z',
+  },
+  {
+    _id: 'fallback-job-eng-infra',
+    slug: 'infrastructure-engineer',
+    title: 'Infrastructure Engineer',
+    team: 'engineering',
+    location: 'Bengaluru',
+    employmentType: 'full-time',
+    applyUrl: 'mailto:careers@soylai.com?subject=Infrastructure%20Engineer',
+    summary: 'Own the substrate Butler runs on — GPU orchestration, observability, and on-device deployment.',
+    featured: true,
+    publishedAt: '2026-05-08T00:00:00Z',
+  },
+  {
+    _id: 'fallback-job-product-design',
+    slug: 'product-designer',
+    title: 'Product Designer, Hospitality',
+    team: 'engineering',
+    location: 'Bengaluru',
+    employmentType: 'full-time',
+    applyUrl: 'mailto:careers@soylai.com?subject=Product%20Designer',
+    summary: 'Design the surfaces hotel staff and guests will use every shift. Voice-first, calm, opinionated.',
+    featured: false,
+    publishedAt: '2026-05-02T00:00:00Z',
+  },
+  {
+    _id: 'fallback-job-gtm-ae',
+    slug: 'enterprise-account-executive',
+    title: 'Enterprise Account Executive',
+    team: 'go-to-market',
+    location: 'Bengaluru · Remote (India)',
+    employmentType: 'full-time',
+    applyUrl: 'mailto:careers@soylai.com?subject=Enterprise%20AE',
+    summary: 'Take Butler into India’s flagship hotels. You’ll own pilots end-to-end and bring back the truth.',
+    featured: false,
+    publishedAt: '2026-04-28T00:00:00Z',
+  },
+  {
+    _id: 'fallback-job-postsales-cs',
+    slug: 'customer-success-lead',
+    title: 'Customer Success Lead',
+    team: 'post-sales',
+    location: 'Bengaluru',
+    employmentType: 'full-time',
+    applyUrl: 'mailto:careers@soylai.com?subject=Customer%20Success%20Lead',
+    summary: 'Turn one launched pilot into ten. Onboarding, integrations, executive trust-building.',
+    featured: false,
+    publishedAt: '2026-04-22T00:00:00Z',
+  },
+  {
+    _id: 'fallback-job-ga-ops',
+    slug: 'people-operations',
+    title: 'People Operations',
+    team: 'g-and-a',
+    location: 'Bengaluru',
+    employmentType: 'full-time',
+    applyUrl: 'mailto:careers@soylai.com?subject=People%20Operations',
+    summary: 'Build the operating system for a hard-shipping team. Hiring, comp, and the calm in between.',
+    featured: false,
+    publishedAt: '2026-04-15T00:00:00Z',
+  },
+]
+
+export function fallbackJobs(): JobPostingDoc[] {
+  return FALLBACK_JOBS
 }
 
 export function fallbackLibraryPreview() {
